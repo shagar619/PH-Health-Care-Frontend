@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { HeroProps } from "@/types/heroProps";
 
 
 export function Hero({

@@ -5,6 +5,7 @@ import { useActionState } from "react";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { registerPatient } from "@/services/auth/registerPatient";
 
 
 const RegisterForm = () => {

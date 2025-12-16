@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import { useActionState } from "react";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
@@ -28,6 +31,7 @@ const RegisterForm = () => {
      <form action={formAction}>
      <FieldGroup>
      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
      {/* Name */}
      <Field>
      <FieldLabel htmlFor="name">Full Name</FieldLabel>
@@ -38,6 +42,7 @@ const RegisterForm = () => {
      </FieldDescription>
      )}
      </Field>
+
      {/* Address */}
      <Field>
      <FieldLabel htmlFor="address">Address</FieldLabel>
@@ -54,6 +59,7 @@ const RegisterForm = () => {
      </FieldDescription>
      )}
      </Field>
+
      {/* Email */}
      <Field>
      <FieldLabel htmlFor="email">Email</FieldLabel>
@@ -70,6 +76,7 @@ const RegisterForm = () => {
      </FieldDescription>
      )}
      </Field>
+
      {/* Password */}
      <Field>
      <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -81,6 +88,7 @@ const RegisterForm = () => {
      </FieldDescription>
      )}
      </Field>
+
      {/* Confirm Password */}
      <Field className="md:col-span-2">
      <FieldLabel htmlFor="confirmPassword">Confirm Password</FieldLabel>
@@ -97,8 +105,10 @@ const RegisterForm = () => {
      )}
      </Field>
      </div>
+
      <FieldGroup className="mt-4">
      <Field>
+
      <Button type="submit" disabled={isPending}>
           {isPending ? "Creating Account..." : "Create Account"}
      </Button>
@@ -108,8 +118,10 @@ const RegisterForm = () => {
           <a href="/login" className="text-blue-600 hover:underline">
                Sign in
           </a>
-          </FieldDescription>
+     </FieldDescription>
+
      </Field>
+
      </FieldGroup>
      </FieldGroup>
 </form>

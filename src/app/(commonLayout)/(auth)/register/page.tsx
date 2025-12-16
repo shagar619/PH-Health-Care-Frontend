@@ -15,7 +15,7 @@ return (
           </CardDescription>
           </CardHeader>
           <CardContent>
-          <RegisterForm />
+               <RegisterForm />
           </CardContent>
           </Card>
      </div>

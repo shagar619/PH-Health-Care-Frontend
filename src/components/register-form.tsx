@@ -109,7 +109,7 @@ const RegisterForm = () => {
      <FieldGroup className="mt-4">
      <Field>
 
-     <Button type="submit" disabled={isPending}>
+     <Button className="cursor-pointer" type="submit" disabled={isPending}>
           {isPending ? "Creating Account..." : "Create Account"}
      </Button>
 

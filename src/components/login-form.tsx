@@ -68,7 +68,7 @@ return (
      <FieldGroup className="mt-4">
      <Field>
 
-     <Button type="submit" disabled={isPending}>
+     <Button className="cursor-pointer" type="submit" disabled={isPending}>
           {isPending ? "Logging in..." : "Login"}
      </Button>
 

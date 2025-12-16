@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 
-import z, { success } from "zod";
+import z from "zod";
 
 const loginValidationZodSchema = z.object({
      email: z.email({

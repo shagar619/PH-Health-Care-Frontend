@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import { useActionState } from "react";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
@@ -15,7 +16,7 @@ const LoginForm = () => {
      const error = state.errors.find((err: any) => err.field === fieldName);
 
      return error.message;
-     
+
      } else {
      return null;
      }
@@ -23,10 +24,11 @@ const LoginForm = () => {
 
      console.log(state);
 
-     return ( 
+return ( 
      <form action={formAction}>
      <FieldGroup>
      <div className="grid grid-cols-1 gap-4">
+
      {/* Email */}
      <Field>
      <FieldLabel htmlFor="email">Email</FieldLabel>

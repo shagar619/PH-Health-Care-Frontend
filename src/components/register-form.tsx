@@ -97,7 +97,6 @@ const RegisterForm = () => {
           name="confirmPassword"
           type="password"
      />
-
           {getFieldError("confirmPassword") && (
      <FieldDescription className="text-red-600">
           {getFieldError("confirmPassword")}
@@ -119,9 +118,7 @@ const RegisterForm = () => {
                Sign in
           </a>
      </FieldDescription>
-
      </Field>
-
      </FieldGroup>
      </FieldGroup>
 </form>

@@ -2,6 +2,8 @@
 "use server"
 
 import z from "zod";
+import { parse } from "cookie";
+import { cookies } from "next/headers";
 
 const loginValidationZodSchema = z.object({
      email: z.email({
@@ -18,6 +20,11 @@ const loginValidationZodSchema = z.object({
 export const loginUser = async (_currentState: any, formData: any): Promise<any> => {
 
      try {
+          const redirectTo = formData.get('redirect') || null;
+
+          let accessTokenObject: null | any = null;
+          let refreshTokenObject: null | any = null;
+
           const loginData = {
                email: formData.get('email'),
                password: formData.get('password'),
@@ -43,17 +50,58 @@ export const loginUser = async (_currentState: any, formData: any): Promise<any>
           headers: {
                "Content-Type": "application/json"
           }
-     })
+     });
 
      const result = await res.json();
 
      const setCookieHeaders = res.headers.getSetCookie();
+
      console.log(setCookieHeaders);
 
-     console.log({
-          res,
-          result
+
+
+     if (setCookieHeaders && setCookieHeaders.length > 0) {
+          setCookieHeaders.forEach((cookie: string) => {
+               const parsedCookie = parse(cookie);
+
+               if (parsedCookie['accessToken']) {
+                    accessTokenObject = parsedCookie;
+               }
+
+               if (parsedCookie['refreshToken']) {
+                    refreshTokenObject = parsedCookie;
+               }
+          })
+     } else {
+          throw new Error("No set-cookie header found!");
+     }
+
+     if (!accessTokenObject) {
+          throw new Error("Tokens not found in cookies!");
+     }
+
+     if (!refreshTokenObject) {
+          throw new Error("Tokens not found in cookies!");
+     }
+
+     const cookieStore = await cookies();
+
+     cookieStore.set("accessToken", accessTokenObject.accessToken, {
+          secure: true,
+          httpOnly: true,
+          maxAge: parseInt(accessTokenObject['Max-Age']),
+          path: accessTokenObject.path || "/",
+          sameSite: accessTokenObject['SameSite'] || "none",
      });
+
+     cookieStore.set("refreshToken", refreshTokenObject.refreshToken, {
+          secure: true,
+          httpOnly: true,
+          maxAge: parseInt(refreshTokenObject['Max-Age']),
+          path: refreshTokenObject.path || "/",
+          sameSite: refreshTokenObject['SameSite'] || "none",
+     });
+
 
      return result;
 

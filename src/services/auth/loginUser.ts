@@ -102,7 +102,6 @@ export const loginUser = async (_currentState: any, formData: any): Promise<any>
           sameSite: refreshTokenObject['SameSite'] || "none",
      });
 
-
      return result;
 
      } catch (error) {

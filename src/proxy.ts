@@ -8,7 +8,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 // This function can be marked `async` if using `await` inside
 export async function proxy(request: NextRequest) {
 
-     const cookieStore = await cookies()
+     const cookieStore = await cookies();
      const pathname = request.nextUrl.pathname;
 
      const accessToken = request.cookies.get("accessToken")?.value || null;

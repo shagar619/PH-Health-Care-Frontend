@@ -17,6 +17,7 @@ const LoginSuccessToast = () => {
           const newUrl = new URL(window.location.href);
 
           newUrl.searchParams.delete("loggedIn");
+
           router.replace(newUrl.toString());
      }
      }, [searchParams, router]);

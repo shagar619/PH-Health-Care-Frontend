@@ -1,8 +1,8 @@
 
 
-const AdminSchedulesManagementPage = () => {
+const PatientDashboardPage = () => {
 
-     return <div>AdminSchedulesManagementPage</div>;
+     return <div>PatientDashboardPage</div>;
 };
 
-export default AdminSchedulesManagementPage;
+export default PatientDashboardPage;

@@ -1,3 +1,5 @@
+"use client";
+
 import { NavSection } from "@/types/dashboard.interface";
 import { UserInfo } from "@/types/user.interface";
 import Link from "next/link";

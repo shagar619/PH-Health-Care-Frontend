@@ -55,7 +55,8 @@ export const loginUser = async (_currentState: any, formData: any): Promise<any>
           body: JSON.stringify(loginData),
           headers: {
                "Content-Type": "application/json"
-          }
+          },
+          
      });
 
      const result = await res.json();

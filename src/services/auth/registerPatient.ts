@@ -25,12 +25,14 @@ export const registerPatient =async (_currentState: any, formData: any): Promise
                return zodValidator(payload, registerPatientValidationZodSchema);
           }
 
+          const validatedPayload: any = zodValidator(payload, registerPatientValidationZodSchema).data;
+          
           const registerData = {
-               password: formData.get('password'),
+               password: validatedPayload.password,
                patient: {
-                    name: formData.get('name'),
-                    address: formData.get('address'),
-                    email: formData.get('email'),
+                    name: validatedPayload.name,
+                    address: validatedPayload.address,
+                    email: validatedPayload.email,
                }
           }
 

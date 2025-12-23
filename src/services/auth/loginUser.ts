@@ -3,7 +3,6 @@
 
 import z from "zod";
 import { parse } from "cookie";
-import { cookies } from "next/headers";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { getDefaultDashboardRoute, isValidRedirectForRole, UserRole } from "@/lib/auth-utils";
 import { redirect } from "next/navigation";

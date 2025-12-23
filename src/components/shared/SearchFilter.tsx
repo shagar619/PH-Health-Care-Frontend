@@ -6,11 +6,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 
+
 interface SearchFilterProps {
      placeholder?: string;
      paramName?: string;
 }
-
 
 
 const SearchFilter = ({
@@ -25,7 +25,6 @@ const SearchFilter = ({
      const debouncedValue = useDebounce(value, 500);
 
      useEffect(() => {
-
      const params = new URLSearchParams(searchParams.toString());
 
      const initialValue = searchParams.get(paramName) || "";

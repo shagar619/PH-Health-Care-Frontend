@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { createSpeciality } from "@/services/admin/specialitiesManagement";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
 

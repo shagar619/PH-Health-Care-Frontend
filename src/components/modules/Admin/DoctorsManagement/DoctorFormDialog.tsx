@@ -45,7 +45,6 @@ const DoctorFormDialog = ({
      null
      );
 
-
      useEffect(() => {
      if (state?.success) {
           toast.success(state.message);

@@ -43,7 +43,7 @@ const DoctorsManagementHeader = ({
           title="Doctors Management"
           description="Manage Doctors information and details"
           action={{
-               label: "Add Doctor    ",
+               label: "Add Doctor",
                icon: Plus,
                onClick: () => setIsDialogOpen(true),
           }}

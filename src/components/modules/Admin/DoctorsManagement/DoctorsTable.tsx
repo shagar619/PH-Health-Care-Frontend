@@ -108,7 +108,7 @@ return (
           onOpenChange={(open) => !open && setDeletingDoctor(null)}
           onConfirm={confirmDelete}
           title="Delete Doctor"
-          description={`Are you sure you want to delete ${deletingDoctor?.name}? This action cannot be undone.`}
+          description={`Are you sure you want to delete ${deletingDoctor?.name}? This action cannot be undone!`}
           isDeleting={isDeleting}
      />
      </>

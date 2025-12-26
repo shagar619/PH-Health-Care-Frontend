@@ -15,7 +15,6 @@ interface IDoctorViewDialogProps {
      doctor: IDoctor | null;
 }
 
-
 const DoctorViewDetailDialog = ({
      open,
      onClose,
@@ -24,7 +23,6 @@ const DoctorViewDetailDialog = ({
      if (!doctor) {
      return null;
 }
-
 
 
 return (

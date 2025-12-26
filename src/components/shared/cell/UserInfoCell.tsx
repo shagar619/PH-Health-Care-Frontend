@@ -13,7 +13,6 @@ interface UserInfoCellProps {
 }
 
 
-
 export function UserInfoCell({ name, email, photo }: UserInfoCellProps) {
 
 return (

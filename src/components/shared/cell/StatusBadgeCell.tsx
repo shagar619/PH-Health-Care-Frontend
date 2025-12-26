@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge";
 
 
-
 interface StatusBadgeCellProps {
      isDeleted?: boolean;
      activeText?: string;

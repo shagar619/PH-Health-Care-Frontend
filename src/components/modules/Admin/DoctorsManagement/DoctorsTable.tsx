@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { doctorsColumns } from "./DoctorsColumns";
 import DoctorFormDialog from "./DoctorFormDialog";
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
+import DoctorViewDetailDialog from "./DoctorViewDetailDialog";
 
 
 

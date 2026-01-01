@@ -51,6 +51,7 @@ function ManagementTable<T>({
      const [, startTransition] = useTransition();
 
      const currentSortBy = searchParams.get("sortBy") || "";
+
      const currentSortOrder = searchParams.get("sortOrder") || "desc";
 
      const handleSort = (sortKey: string) => {

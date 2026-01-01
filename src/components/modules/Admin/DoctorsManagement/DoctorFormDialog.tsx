@@ -95,8 +95,8 @@ const DoctorFormDialog = ({
      dataTransfer.items.add(selectedFile);
      fileInputRef.current.files = dataTransfer.files;
      }
-}
-}, [state, onSuccess, onClose, selectedFile]);
+     }
+     }, [state, onSuccess, onClose, selectedFile]);
 
 
 
@@ -120,7 +120,7 @@ const DoctorFormDialog = ({
                id="name"
                name="name"
                placeholder="Dr. John Doe"
-               defaultValue={isEdit ? doctor?.name : undefined}
+               defaultValue={state?.formData?.name || (isEdit ? doctor?.name : "")}
           />
      <InputFieldError state={state} field="name" />
      </Field>
@@ -133,9 +133,7 @@ const DoctorFormDialog = ({
                type="email"
                placeholder="doctor@example.com"
                // defaultValue={isEdit ? doctor?.email : undefined}
-               defaultValue={
-               state?.formData?.email || (isEdit ? doctor?.email : "")
-               }
+               defaultValue={state?.formData?.email || (isEdit ? doctor?.email : "")}
                disabled={isEdit}
           />
      <InputFieldError state={state} field="email" />
@@ -171,7 +169,6 @@ const DoctorFormDialog = ({
      </>
      )}
 
-
      {/* Specialty Selection */}
      <SpecialtyMultiSelect
           selectedSpecialtyIds={specialtySelection.selectedSpecialtyIds}
@@ -198,10 +195,7 @@ const DoctorFormDialog = ({
                name="contactNumber"
                placeholder="+1234567890"
                // defaultValue={doctor?.contactNumber}
-               defaultValue={
-               state?.formData?.contactNumber ||
-               (isEdit ? doctor?.contactNumber : "")
-               }
+               defaultValue={state?.formData?.contactNumber ||(isEdit ? doctor?.contactNumber : "")}
           />
      <InputFieldError state={state} field="contactNumber" />
      </Field>
@@ -243,13 +237,10 @@ const DoctorFormDialog = ({
                name="experience"
                type="number"
                // defaultValue={isEdit ? doctor?.experience : undefined}
-               defaultValue={
-               state?.formData?.experience ||
-               (isEdit ? doctor?.experience : "")
-               }
+               defaultValue={state?.formData?.experience ||(isEdit ? doctor?.experience : "")}
                min="0"
           />
-     <InputFieldError state={state} field="experience" />
+     <InputFieldError state={state}field="experience" />
      </Field>
 
      <Field>
@@ -296,10 +287,7 @@ const DoctorFormDialog = ({
                name="qualification"
                placeholder="MBBS, MD"
                 // defaultValue={isEdit ? doctor?.qualification : undefined}
-               defaultValue={
-               state?.formData?.qualification ||
-               (isEdit ? doctor?.qualification : "")
-               }
+               defaultValue={state?.formData?.qualification ||(isEdit ? doctor?.qualification : "")}
           />
      <InputFieldError state={state} field="qualification" />
      </Field>
@@ -313,10 +301,7 @@ const DoctorFormDialog = ({
                name="currentWorkingPlace"
                placeholder="City Hospital"
                // defaultValue={isEdit ? doctor?.currentWorkingPlace : undefined}
-               defaultValue={
-               state?.formData?.currentWorkingPlace ||
-               (isEdit ? doctor?.currentWorkingPlace : "")
-               }
+               defaultValue={state?.formData?.currentWorkingPlace ||(isEdit ? doctor?.currentWorkingPlace : "")}
           />
      <InputFieldError state={state} field="currentWorkingPlace" />
      </Field>
@@ -328,10 +313,7 @@ const DoctorFormDialog = ({
                name="designation"
                placeholder="Senior Consultant"
                // defaultValue={isEdit ? doctor?.designation : undefined}
-               defaultValue={
-               state?.formData?.designation ||
-               (isEdit ? doctor?.designation : "")
-               }
+               defaultValue={state?.formData?.designation ||(isEdit ? doctor?.designation : "")}
           />
      <InputFieldError state={state} field="designation" />
      </Field>

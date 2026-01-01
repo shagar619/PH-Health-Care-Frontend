@@ -60,6 +60,7 @@ const DoctorFormDialog = ({
      if (fileInputRef.current) {
           fileInputRef.current.value = "";
      }
+
      if (selectedFile) {
           setSelectedFile(null); // Clear preview
      }

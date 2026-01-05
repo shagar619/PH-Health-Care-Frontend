@@ -2,7 +2,7 @@
 
 const AdminsManagementPage = () => {
 
-     return <div>AdminsManagementPage</div>;
+     return <div>AdminsManagementPage is here</div>;
 };
 
 export default AdminsManagementPage;

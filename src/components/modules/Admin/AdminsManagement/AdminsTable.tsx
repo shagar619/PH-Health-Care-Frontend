@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import AdminFormDialog from "./AdminFormDialog";
 import AdminViewDetailDialog from "./AdminViewDetailDialog";
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
+import { adminsColumns } from "./adminsColumn";
 
 
 

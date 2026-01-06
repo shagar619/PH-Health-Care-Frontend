@@ -8,6 +8,8 @@ import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import PatientFormDialog from "./PatientFormDialog";
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
+import PatientViewDetailDialog from "./PatientsViewDetailDialog";
+import { patientsColumns } from "./patientsColumns";
 
 
 

@@ -2,7 +2,7 @@
 
 const AdminPatientsManagementsPage = () => {
 
-     return <div>AdminPatientsManagementsPage</div>;
+     return <div>AdminPatientsManagementsPage is here</div>;
 };
 
 export default AdminPatientsManagementsPage;

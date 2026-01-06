@@ -126,7 +126,7 @@ export async function softDeletePatient(id: string) {
 export async function deletePatient(id: string) {
 
      try {
-     const response = await serverFetch.delete(`/patient/${id}`)
+     const response = await serverFetch.delete(`/patient/soft/${id}`);
      const result = await response.json();
      return result;
      } catch (error: any) {

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { updatePatient } from "@/services/admin/patientsManagement";
 import { IPatient } from "@/types/patient.interface";
 import { useActionState, useEffect, useRef } from "react";
 import { toast } from "sonner";

@@ -2,7 +2,7 @@
 
 const AdminAppointmentsManagementPage = () => {
 
-     return <div>AdminAppointmentsManagementPage</div>;
+     return <div>AdminAppointmentsManagementPage is here</div>;
 };
 
 export default AdminAppointmentsManagementPage;

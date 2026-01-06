@@ -5,6 +5,8 @@ import { IAppointment } from "@/types/appointments.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import AppointmentViewDetailDialog from "./AppointmentViewDetailDialog";
+import { appointmentsColumns } from "./appointmentsColumns";
+import ChangeAppointmentStatusDialog from "./ChangeAppointmentStatusDialog";
 
 
 

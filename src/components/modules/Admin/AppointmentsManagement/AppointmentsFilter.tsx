@@ -22,7 +22,7 @@ const AppointmentsFilter = () => {
      <SelectFilter
           paramName="status"
           placeholder="Appointment Status"
-          defaultValue="All Appointment Statuses"
+          // defaultValue="All Appointment Statuses"
           options={[
                { label: "Scheduled", value: "SCHEDULED" },
                { label: "In Progress", value: "INPROGRESS" },
@@ -35,7 +35,7 @@ const AppointmentsFilter = () => {
      <SelectFilter
           paramName="paymentStatus"
           placeholder="Payment Status"
-          defaultValue="All Payment Statuses"
+          // defaultValue="All Payment Statuses"
           options={[
                { label: "Paid", value: "PAID" },
                { label: "Unpaid", value: "UNPAID" },

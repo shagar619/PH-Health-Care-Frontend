@@ -17,7 +17,7 @@ export const getUserInfo = async (): Promise<UserInfo | any> => {
      const response = await serverFetch.get("/auth/me", {
           cache: "force-cache",
           next: { tags: ["user-info"] }
-     })
+     });
 
      const result = await response.json();
 

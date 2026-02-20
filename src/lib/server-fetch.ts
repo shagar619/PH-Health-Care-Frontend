@@ -1,3 +1,4 @@
+import { getNewAccessToken } from '@/services/auth/auth.service';
 import { getCookie } from '@/services/auth/tokenHandlers';
 
 
@@ -10,16 +11,20 @@ const serverFetchHelper = async (endpoint: string, options: RequestInit): Promis
 
      const accessToken = await getCookie("accessToken");
 
+     //To stop recursion loop
+     if (endpoint !== "/auth/refresh-token") {
+     await getNewAccessToken();
+     }
+
      const response = await fetch(`${BACKEND_API_URL}${endpoint}`, {
           headers: {
-               ...headers,
-               // ...(accessToken ? { "Authorization": `Bearer ${accessToken}` } : {}),
-               // ...(accessToken ? { "Authorization": accessToken } : {}),
-               Cookie: accessToken ? `accessToken=${accessToken}` : "",
+          Cookie: accessToken ? `accessToken=${accessToken}` : "",
+          ...headers,
+          // ...(accessToken ? { "Authorization": `Bearer ${accessToken}` } : {}),
+          // ...(accessToken ? { "Authorization": accessToken } : {}),
           },
           ...restOptions
-     })
-
+     });
      return response;
 }
 

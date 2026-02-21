@@ -9,7 +9,7 @@ const isPastSchedule = (schedule: IDoctorSchedule) => {
      return isBefore(
      new Date(schedule.schedule?.startDateTime || ""),
      startOfDay(new Date())
-); 
+);
 };
 
 export const myScheduleColumns: Column<IDoctorSchedule>[] = [

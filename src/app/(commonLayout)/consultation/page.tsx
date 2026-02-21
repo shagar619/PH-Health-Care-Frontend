@@ -2,7 +2,7 @@
 
 const ConsultationPage = () => {
 
-     return <div>ConsultationPage</div>;
+     return <div>Consultation Page is here</div>;
 };
 
 export default ConsultationPage;

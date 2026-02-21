@@ -16,6 +16,7 @@ import {
 import { getInitials } from "@/lib/formatters";
 import { Clock, DollarSign, Eye, MapPin, Star } from "lucide-react";
 import Link from "next/link";
+import BookAppointmentDialog from "./BookAppointmentDialog";
 
 
 

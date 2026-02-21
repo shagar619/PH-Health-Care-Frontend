@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 
-
 import { parse } from "cookie";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { getDefaultDashboardRoute, isValidRedirectForRole, UserRole } from "@/lib/auth-utils";
@@ -96,6 +95,20 @@ export const loginUser = async (_currentState: any, formData: any): Promise<any>
      if (!result.success) {
           throw new Error(result.error || "Login failed!");
      }
+
+     if(redirectTo && result.data.needPasswordChange) {
+          const requestedPath = redirectTo.toString();
+          if (isValidRedirectForRole(requestedPath, userRole)) {
+               redirect(`/reset-password?redirect=${requestedPath}`)
+          } else {
+               redirect(`/reset-password`)
+          }
+     }
+
+     if (result.data.needPasswordChange) {
+          redirect(`/reset-password`);
+     }
+
 
      if (redirectTo) {
           const requestedPath = redirectTo.toString();

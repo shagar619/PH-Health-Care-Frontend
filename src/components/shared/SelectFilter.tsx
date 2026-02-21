@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface SelectFilterProps {
      paramName: string; // ?gender=
      placeholder?: string;
+     defaultValue?: string;
      options: { label: string; value: string }[];
 }
 
@@ -16,18 +17,19 @@ const SelectFilter = ({
      paramName,
      placeholder,
      options,
+     defaultValue = "All",
 }: SelectFilterProps) => {
 
      const router = useRouter();
      const searchParams = useSearchParams();
      const [isPending, startTransition] = useTransition();
 
-     const currentValue = searchParams.get(paramName) || "All";
+     const currentValue = searchParams.get(paramName) || defaultValue;
 
      const handleChange = (value: string) => {
      const params = new URLSearchParams(searchParams.toString());
 
-     if (value === "All") {
+     if (value === defaultValue) {
           params.delete(paramName);
      } else if (value) {
           params.set(paramName, value);
@@ -52,7 +54,7 @@ const SelectFilter = ({
      <SelectValue placeholder={placeholder} />
      </SelectTrigger>
      <SelectContent>
-     <SelectItem value="All">All</SelectItem>
+     <SelectItem value={defaultValue}>{defaultValue}</SelectItem>
           {options.map((option) => (
      <SelectItem key={option.value} value={option.value}>
           {option.label}

@@ -1,3 +1,4 @@
+import { IDoctorSchedule } from "./schedule.interface";
 
 
 export interface IDoctor {
@@ -29,4 +30,5 @@ export interface IDoctor {
                icon?: string;
           };
      }>;
+     doctorSchedules?: IDoctorSchedule[];
 }

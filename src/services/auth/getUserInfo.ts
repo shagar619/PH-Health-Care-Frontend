@@ -4,34 +4,53 @@
 import { UserInfo } from "@/types/user.interface";
 import { getCookie } from "./tokenHandlers";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { serverFetch } from "@/lib/server-fetch";
 
 
 
-export const getUserInfo = async (): Promise<UserInfo | null> => {
-     
+export const getUserInfo = async (): Promise<UserInfo | any> => {
+
+     let userInfo: UserInfo | any;
+
      try {
+
+     const response = await serverFetch.get("/auth/me", {
+          cache: "force-cache",
+          next: { tags: ["user-info"] }
+     });
+
+     const result = await response.json();
+
+     if (result.success) {
           const accessToken = await getCookie("accessToken");
 
-          if (!accessToken) {
-               return null;
-          }
+     if (!accessToken) {
+          throw new Error("No access token found");
+     }
 
-          const verifiedToken = jwt.verify(accessToken, process.env.JWT_SECRET as string) as JwtPayload;
+     const verifiedToken = jwt.verify(accessToken, process.env.JWT_SECRET as string) as JwtPayload;
 
-          if (!verifiedToken) {
-               return null;
-          }
+     userInfo = {
+          name: verifiedToken.name || "Unknown User",
+          email: verifiedToken.email,
+          role: verifiedToken.role,
+     }
+     }
 
-          const userInfo: UserInfo = {
-               name: verifiedToken.name || "Unknown User",
-               email: verifiedToken.email,
-               role: verifiedToken.role,
-          }
+     userInfo = {
+          name: result.data.admin?.name || result.data.doctor?.name || result.data.patient?.name || result.data.name || "Unknown User",
+          ...result.data
+     };
 
-          return userInfo;
 
+     return userInfo;
      } catch (error: any) {
-          console.error("Error fetching user info:", error);
-          return null;
+     console.log(error);
+     return {
+          id: "",
+          name: "Unknown User",
+          email: "",
+          role: "PATIENT",
+     };
      }
 }

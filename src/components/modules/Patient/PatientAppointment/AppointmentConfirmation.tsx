@@ -56,7 +56,7 @@ const AppointmentConfirmation = ({
 
      // Redirect after 2 seconds
      setTimeout(() => {
-          router.push("/dashboard/my-appointments");
+     router.push("/dashboard/my-appointments");
      }, 2000);
      } else {
      toast.error(result.message || "Failed to book appointment");
@@ -71,6 +71,7 @@ const AppointmentConfirmation = ({
 
 
      if (bookingSuccess) {
+
      return (
      <div className="max-w-2xl mx-auto">
      <Card className="border-green-200 bg-green-50">

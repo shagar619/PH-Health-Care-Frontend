@@ -108,6 +108,7 @@ export async function changeAppointmentStatus(
      );
 
      const result = await response.json();
+
      return result;
      } catch (error: any) {
      console.error("Error changing appointment status:", error);

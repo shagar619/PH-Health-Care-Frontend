@@ -1,3 +1,4 @@
+import AppointmentDetails from "@/components/modules/Patient/PatientAppointment/AppointmentDetails";
 import { getAppointmentById } from "@/services/patient/appointment.service";
 import { IAppointment } from "@/types/appointments.interface";
 import { notFound } from "next/navigation";

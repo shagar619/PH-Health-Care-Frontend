@@ -21,6 +21,7 @@ import {
      Stethoscope,
      User,
 } from "lucide-react";
+import ReviewDialog from "./ReviewDialog";
 
 
 

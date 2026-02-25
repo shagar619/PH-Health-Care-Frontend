@@ -6,8 +6,8 @@ import { IDoctorSchedule } from "@/types/schedule.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
-import { myScheduleColumns } from "./MyScheduleColumns";
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
+import { myScheduleColumns } from "./MyScheduleColumns";
 
 
 

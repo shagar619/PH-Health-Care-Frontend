@@ -26,6 +26,8 @@ interface AppointmentsListProps {
 
 const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
 
+     console.log(appointments)
+
      const getStatusBadge = (status: AppointmentStatus) => {
      const statusConfig: Record<
      AppointmentStatus,

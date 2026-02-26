@@ -14,6 +14,7 @@ import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IPrescription } from "@/types/prescription.interface";
+import { doctorPrescriptionColumns } from "./doctorPrescriptionColumns";
 
 
 

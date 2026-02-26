@@ -7,6 +7,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import DoctorAppointmentDetailDialog from "./DoctorAppointmentDetailDialog";
 import ChangeAppointmentStatusDialog from "./ChangeAppointmentStatusDialog";
+import { doctorAppointmentColumns } from "./doctorAppointmentColumns";
 
 
 

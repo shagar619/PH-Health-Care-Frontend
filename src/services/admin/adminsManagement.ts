@@ -4,6 +4,7 @@
 import { serverFetch } from "@/lib/server-fetch";
 import { zodValidator } from "@/lib/zodValidator";
 import { createAdminZodSchema, updateAdminZodSchema } from "@/zod/admin.validation";
+import { revalidateTag } from "next/cache";
 
 
 
@@ -62,6 +63,11 @@ export async function createAdmin(_prevState: any, formData: FormData) {
           body: newFormData,
      });
      const result = await response.json();
+     if (result.success) {
+     revalidateTag('admins-list', { expire: 0 });
+     revalidateTag('admins-page-1', { expire: 0 });
+     revalidateTag('admin-dashboard-meta', { expire: 0 });
+     }
      return result;
      } catch (error: any) {
      console.error("Create admin error:", error);
@@ -99,7 +105,7 @@ export async function getAdmins(queryString?: string) {
 
      const result = await response.json();
      return result;
-     
+
      } catch (error: any) {
      console.log(error);
      return {
@@ -114,10 +120,18 @@ export async function getAdmins(queryString?: string) {
  * API: GET /admin/:id
  */
 export async function getAdminById(id: string) {
+
      try {
-     const response = await serverFetch.get(`/admin/${id}`)
+     const response = await serverFetch.get(`/admin/${id}`, {
+          next: {
+               tags: [`admin-${id}`, "admins-list"],
+                revalidate: 180, // more responsive admin profile updates
+          }
+     });
+
      const result = await response.json();
      return result;
+
      } catch (error: any) {
      console.log(error);
      return {
@@ -183,6 +197,11 @@ export async function updateAdmin(id: string, _prevState: any, formData: FormDat
      });
 
      const result = await response.json();
+     if (result.success) {
+     revalidateTag('admins-list', { expire: 0 });
+     revalidateTag('admins-page-1', { expire: 0 });
+     revalidateTag('admin-dashboard-meta', { expire: 0 });
+     }
      return result;
      } catch (error: any) {
      console.error("Update admin error:", error);

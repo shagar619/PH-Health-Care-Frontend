@@ -3,15 +3,21 @@
 
 import { serverFetch } from "@/lib/server-fetch";
 import { IReviewFormData } from "@/types/review.interface";
+import { revalidateTag } from "next/cache";
 
 
 
 export async function getReviews(queryString?: string) {
 
      try {
-     const url = queryString ? `/review?${queryString}` : "/review";
+          const url = queryString ? `/review?${queryString}` : "/review";
 
-     const response = await serverFetch.get(url);
+          const response = await serverFetch.get(url, {
+          next: {
+               tags: ["reviews-list"],
+                revalidate: 300, // 5 minutes
+          }
+     });
      const result = await response.json();
 
      return {
@@ -33,6 +39,7 @@ export async function getReviews(queryString?: string) {
 export async function createReview(data: IReviewFormData) {
 
      try {
+
      const response = await serverFetch.post("/review", {
           body: JSON.stringify(data),
           headers: {
@@ -41,6 +48,11 @@ export async function createReview(data: IReviewFormData) {
      });
 
      const result = await response.json();
+
+     if (result.success && data.doctorId) {
+     revalidateTag('reviews-list', { expire: 0 });
+     revalidateTag(`doctor-${data.doctorId}`, { expire: 0 }); // Update doctor's review count
+     }
      return result;
      } catch (error: any) {
      console.error("Error creating review:", error);

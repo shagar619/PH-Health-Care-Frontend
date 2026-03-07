@@ -8,9 +8,6 @@ import { changePasswordSchema, forgotPasswordSchema, resetPasswordSchema } from 
 import { revalidateTag } from "next/cache";
 import { deleteCookie, getCookie, setCookie } from "./tokenHandlers";
 import jwt from "jsonwebtoken";
-import { getDefaultDashboardRoute, isValidRedirectForRole, UserRole } from "@/lib/auth-utils";
-import { getUserInfo } from "./getUserInfo";
-import { redirect } from "next/navigation";
 import { parse } from "cookie";
 import { verifyAccessToken } from "@/lib/jwtHanlders";
 
@@ -48,6 +45,7 @@ export async function updateMyProfile(formData: FormData) {
      const result = await response.json();
 
      revalidateTag("user-info", { expire: 0 });
+
      return result;
      } catch (error: any) {
      console.log(error);

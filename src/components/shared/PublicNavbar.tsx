@@ -3,6 +3,8 @@ import { getUserInfo } from "@/services/auth/getUserInfo";
 import { getCookie } from "@/services/auth/tokenHandlers";
 import Link from "next/link";
 import AISearchDialog from "./AISSearchDialog";
+import NavbarAuthButtons from "./NavbarAuthButtons";
+import MobileMenu from "./MobileMenu";
 
 
 const PublicNavbar = async () => {

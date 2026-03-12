@@ -97,6 +97,8 @@ export function AppointmentPieChart({
      UNPAID: "primary", // Orange - unpaid (needs attention)
      };
 
+     // console.log("dashboard data:", data);
+
      // Format data for recharts
      const formattedData = data.map((item) => ({
      name: item.status
@@ -106,6 +108,8 @@ export function AppointmentPieChart({
      value: Number(item.count),
      originalStatus: item.status,
      }));
+
+     // console.log("Formatted Pie Chart Data:", formattedData);
 
      const getColor = (index: number, status?: string) => {
      if (status && STATUS_COLORS[status]) {

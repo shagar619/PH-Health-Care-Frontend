@@ -5,12 +5,11 @@ import ResetPasswordForm from "@/components/ResetPasswordForm";
 
 const ResetPasswordPage = async ({
      searchParams,
-}: {
-     searchParams?: Promise<{ redirect?: string }>;
+}: { searchParams?: Promise<{ redirect?: string; email?: string; token?: string }>;
 }) => {
 
      const params = (await searchParams) || {};
-     const redirect = params.redirect;
+     const { redirect, email, token } = params;
 
      return (
      <div className="flex min-h-screen items-center justify-center">
@@ -18,10 +17,10 @@ const ResetPasswordPage = async ({
      <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Reset Your Password</h1>
           <p className="text-muted-foreground">
-          Enter your new password below here && reset your account password
+          Enter your new password below to reset your account password
           </p>
      </div>
-     <ResetPasswordForm redirect={redirect} />
+     <ResetPasswordForm redirect={redirect} email={email} token={token} />
      </div>
      </div>
 );

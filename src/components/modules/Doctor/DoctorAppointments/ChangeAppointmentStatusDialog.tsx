@@ -72,7 +72,7 @@ export default function ChangeAppointmentStatusDialog({
      ) {
      setTimeout(() => {
           toast.info(
-          "Don't forget to provide a prescription for this patient",
+          "Don't forgot to provide a prescription for this patient",
      {
           duration: 5000,
      }

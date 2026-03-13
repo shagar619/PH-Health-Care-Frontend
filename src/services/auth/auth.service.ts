@@ -44,7 +44,9 @@ export async function updateMyProfile(formData: FormData) {
 
      const result = await response.json();
 
-     revalidateTag("user-info", { expire: 0 });
+     if (result.success) {
+          revalidateTag("user-info", { expire: 0 });
+     }
 
      return result;
      } catch (error: any) {
@@ -65,6 +67,7 @@ export async function updateMyProfile(formData: FormData) {
 export async function resetPassword(_prevState: any, formData: FormData) {
 
      const isEmailReset = formData.get("isEmailReset") === "true";
+
      const email = formData.get("email") as string;
      const token = formData.get("token") as string;
 

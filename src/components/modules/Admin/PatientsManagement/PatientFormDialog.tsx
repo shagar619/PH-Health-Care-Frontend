@@ -32,19 +32,23 @@ const PatientFormDialog = ({
      null
      );
 
+     const prevStateRef = useRef(state);
+
      // Handle success/error from server
      useEffect(() => {
+     if (state === prevStateRef.current) return;
+     prevStateRef.current = state;
      if (state?.success) {
-          toast.success(state.message || "Operation successful");
+     toast.success(state.message || "Operation successful");
      if (formRef.current) {
-          formRef.current.reset();
+     formRef.current.reset();
      }
-          onSuccess();
-          onClose();
+     onSuccess();
+     onClose();
      } else if (state?.message && !state.success) {
-          toast.error(state.message);
+     toast.error(state.message);
      }
-}, [state, onSuccess, onClose]);
+     }, [state, onSuccess, onClose]);
 
      const handleClose = () => {
      formRef.current?.reset();

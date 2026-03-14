@@ -26,19 +26,23 @@ const ScheduleFormDialog = ({
 
      const [state, formAction, isPending] = useActionState(createSchedule, null);
 
+     const prevStateRef = useRef(state);
+
      // Handle success/error from server
      useEffect(() => {
+     if (state === prevStateRef.current) return;
+     prevStateRef.current = state;
      if (state?.success) {
-          toast.success(state.message || "Schedule created successfully");
+     toast.success(state.message || "Schedule created successfully");
      if (formRef.current) {
-          formRef.current.reset();
+     formRef.current.reset();
      }
      onSuccess();
      onClose();
      } else if (state?.message && !state.success) {
-          toast.error(state.message);
+     toast.error(state.message);
      }
-}, [state, onSuccess, onClose]);
+     }, [state, onSuccess, onClose]);
 
      const handleClose = () => {
      formRef.current?.reset();

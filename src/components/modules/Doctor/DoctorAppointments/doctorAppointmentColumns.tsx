@@ -3,6 +3,7 @@ import { Column } from "@/components/shared/ManagementTable";
 import { Badge } from "@/components/ui/badge";
 import { AppointmentStatus, IAppointment } from "@/types/appointments.interface";
 import { format } from "date-fns";
+import AppointmentCountdown from "../../Patient/PatientAppointment/AppointmentCountdown";
 
 
 
@@ -30,7 +31,9 @@ const statusConfig: Record<
 },
 };
 
+
 export const doctorAppointmentColumns: Column<IAppointment>[] = [
+
 {
      header: "Patient",
      accessor: (appointment) => (
@@ -48,9 +51,8 @@ export const doctorAppointmentColumns: Column<IAppointment>[] = [
      header: "Date & Time",
      accessor: (appointment) => {
      if (!appointment.schedule?.startDateTime) return "N/A";
-
      return (
-     <div className="text-sm">
+     <div className="text-sm space-y-1">
           <p className="font-medium">
           {format(
           new Date(appointment.schedule.startDateTime),
@@ -61,8 +63,17 @@ export const doctorAppointmentColumns: Column<IAppointment>[] = [
           {format(new Date(appointment.schedule.startDateTime), "h:mm a")} -{" "}
           {format(new Date(appointment.schedule.endDateTime), "h:mm a")}
           </p>
-     </div>
-);
+          {appointment.status === AppointmentStatus.SCHEDULED &&
+          appointment.schedule.startDateTime && (
+          <div className="pt-1">
+          <AppointmentCountdown
+               appointmentDateTime={appointment.schedule.startDateTime}
+               className="text-xs"
+          />
+          </div>
+          )}
+          </div>
+     );
 },
      sortKey: "schedule.startDateTime",
 },
@@ -70,7 +81,6 @@ export const doctorAppointmentColumns: Column<IAppointment>[] = [
      header: "Status",
      accessor: (appointment) => {
      const config = statusConfig[appointment.status];
-
      return (
      <Badge variant={config.variant} className={config.className}>
           {config.label}
@@ -82,7 +92,6 @@ export const doctorAppointmentColumns: Column<IAppointment>[] = [
      header: "Payment",
      accessor: (appointment) => {
      const isPaid = appointment.paymentStatus === "PAID";
-
      return (
      <Badge
           variant={isPaid ? "default" : "secondary"}
@@ -96,7 +105,6 @@ export const doctorAppointmentColumns: Column<IAppointment>[] = [
 {
      header: "Prescription",
      accessor: (appointment) => {
-
      return appointment.prescription ? (
      <Badge variant="outline" className="bg-green-50 text-green-700">
           Provided

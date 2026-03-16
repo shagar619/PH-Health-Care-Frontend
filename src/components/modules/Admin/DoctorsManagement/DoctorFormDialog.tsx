@@ -56,6 +56,8 @@ const DoctorFormDialog = ({
      null
      );
 
+     const prevStateRef = useRef(state);
+
      const handleClose = () => {
      if (fileInputRef.current) {
           fileInputRef.current.value = "";
@@ -68,7 +70,7 @@ const DoctorFormDialog = ({
      onClose(); // Close dialog
      };
 
-     console.log({ state });
+     // console.log({ state });
 
      const specialtySelection = useSpecialtySelection({
           doctor,
@@ -81,15 +83,18 @@ const DoctorFormDialog = ({
      };
 
      useEffect(() => {
+     if (state === prevStateRef.current) return;
+     prevStateRef.current = state;
+
      if (state?.success) {
-          toast.success(state.message);
+     toast.success(state.message);
      if (formRef.current) {
-          formRef.current.reset();
+     formRef.current.reset();
      }
      onSuccess();
      onClose();
-     } else if (state && !state.success) {
-          toast.error(state.message);
+     } else if (state && !state.success && state.message) {
+     toast.error(state.message);
 
      if (selectedFile && fileInputRef.current) {
      const dataTransfer = new DataTransfer();

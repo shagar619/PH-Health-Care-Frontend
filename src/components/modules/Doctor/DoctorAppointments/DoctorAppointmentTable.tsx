@@ -17,7 +17,7 @@ interface DoctorAppointmentsTableProps {
 
 
 export default function DoctorAppointmentsTable({
-  appointments = [],
+     appointments = [],
 }: DoctorAppointmentsTableProps) {
 
      const router = useRouter();

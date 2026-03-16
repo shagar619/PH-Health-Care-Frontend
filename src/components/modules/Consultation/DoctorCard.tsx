@@ -59,7 +59,7 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                {doctor.doctorSpecialties &&
                doctor.doctorSpecialties.length > 0 && (
                <Badge variant="secondary" className="text-xs">
-                    {doctor.doctorSpecialties[0].specialties?.title}
+                    {doctor.doctorSpecialties[0].specialities?.title}
                </Badge>
                )}
           </div>
@@ -103,7 +103,7 @@ export default function DoctorCard({ doctor }: DoctorCard) {
           variant="outline"
           className="text-xs"
      >
-          {specialty.specialties?.title}
+          {specialty.specialities?.title}
      </Badge>
      ))}
      {doctor.doctorSpecialties.length > 3 && (

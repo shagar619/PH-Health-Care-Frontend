@@ -8,9 +8,7 @@ export default async function MyAppointmentsPage() {
      const response = await getMyAppointments();
      const appointments: IAppointment[] = response?.data || [];
 
-     console.log(appointments);
-
-
+     // console.log(appointments);
 
      return (
      <div className="space-y-6">

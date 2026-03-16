@@ -70,7 +70,7 @@ const DoctorFormDialog = ({
      onClose(); // Close dialog
      };
 
-     console.log({ state });
+     // console.log({ state });
 
      const specialtySelection = useSpecialtySelection({
           doctor,

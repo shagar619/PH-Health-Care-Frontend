@@ -22,6 +22,7 @@ const ForgotPasswordPage = async ({
 }: ForgotPasswordPageProps) => {
 
      const params = await searchParams;
+
      const error = params.error;
 
      return (

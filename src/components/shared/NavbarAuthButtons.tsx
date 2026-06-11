@@ -47,5 +47,5 @@ export default function NavbarAuthButtons({
      <Link href="/login">
      <Button>Login</Button>
      </Link>
-  );
+     );
 }

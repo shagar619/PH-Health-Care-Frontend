@@ -5,6 +5,7 @@ import Link from "next/link";
 import AISearchDialog from "./AISSearchDialog";
 import NavbarAuthButtons from "./NavbarAuthButtons";
 import MobileMenu from "./MobileMenu";
+import logo from "../../assets/images/logo.png";
 
 
 const PublicNavbar = async () => {
@@ -29,7 +30,7 @@ const PublicNavbar = async () => {
      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur  dark:bg-background/95">
      <div className="container mx-auto flex h-16 items-center justify-between px-4">
      <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold text-primary">PH Doc</span>
+          <img src={logo.src} alt="PH Doc Logo" className="h-8 w-auto" />
      </Link>
 
      <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">

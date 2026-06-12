@@ -1,194 +1,146 @@
-import { LargeSparkleIcon, SparkleIcon } from "@/assets/icons/SparkleIcon";
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { HeroProps } from "@/types/heroProps";
-import { Calendar, Search, Star } from "lucide-react";
+import { CalendarDays, Search, Stethoscope } from "lucide-react";
 
+// 1. Define your background images here
+// IMPORTANT: Replace these placeholders with actual imports from your assets folder
+// import hero1 from "@/assets/images/hero/hero-1.jpg";
+// import hero2 from "@/assets/images/hero/hero-2.jpg";
+// import hero3 from "@/assets/images/hero/hero-3.jpg";
 
-export function Hero({
-badge = {
-     text: "AI-Powered Healthcare",
-},
-heading = {
-     line1: "Find Your Perfect",
-     line2: "Doctor with AI",
-},
-description = [
-     "Our advanced AI technology analyzes your symptoms, medical",
-     "history, and preferences to match you with the best-fit doctors",
-     "in seconds.",
-],
-buttons = {
-     primary: {
-          text: "Find Your Doctor",
-     },
-     secondary: {
-          text: "Book Appointment",
-     },
-     },
-     stats = [
-     { value: "50K+", label: "Patients Served" },
-     { value: "1000+", label: "Expert Doctors" },
-     {
-     value: "4.9",
-     label: "Patient Rating",
-     icon: <Star className="size-6 fill-yellow-400 stroke-yellow-400" />,
-},
-],
-formCard = {
-     title: "AI Doctor Finder",
-     symptomLabel: "What are your symptoms?",
-     symptomPlaceholder: "e.g., headache, fever, cough",
-     specialtyLabel: "Preferred specialty",
-     specialtyOptions: [
-     "General Physician",
-     "Cardiologist",
-     "Dermatologist",
-     "Pediatrician",
-     "Orthopedic",
-],
-     defaultSpecialty: "General Physician",
-     submitText: "Get AI Recommendations",
-     footerText:
-     "✨ Powered by advanced AI algorithms for accurate doctor matching",
-},
-}: HeroProps) {
+const placeholderImages = [
+  "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2000&auto=format&fit=crop", // Modern Clinic
+  "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=2000&auto=format&fit=crop", // Doctor & Patient
+  "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2000&auto=format&fit=crop", // Telehealth
+];
 
-  //   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
-  //     const formData = new FormData(e.currentTarget);
-  //     const data = {
-  //       symptoms: formData.get('symptoms') as string,
-  //       specialty: formData.get('specialty') as string,
-  //     };
-  //     formCard.onSubmit?.(data);
-  //   };
+const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Auto-slide logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % placeholderImages.length);
+    }, 6000); // Change image every 6 seconds
 
-return (
-<div className="w-full relative">
-      {/* Radial Gradient Background from Bottom */}
-     <div
-     className="absolute inset-0 z-0 "
-     style={{
-          background:
-          "radial-gradient(125% 125% at 50% 90%, #fff 30%, #155DFC 100%)",
-     }}
-     />
-      {/* Content Container */}
-     <div className="w-full px-4 py-8 md:px-8 lg:px-16 relative">
-     <div className="mx-auto max-w-[1200px]">
-     <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Left Column - Hero Content */}
-          <div className="flex flex-col justify-center space-y-6">
-              {/* Badge */}
-          <div className="inline-flex items-center gap-3 self-start rounded-full bg-white px-4 py-2">
-               <SparkleIcon />
-               <span className="text-[11.9px] font-medium text-blue-700">
-               {badge.text}
-          </span>
-          </div>
+    return () => clearInterval(timer);
+  }, []);
 
-          {/* Heading */}
-          <div className="space-y-2">
-               <h1 className="text-[51px] leading-[60px]">{heading.line1}</h1>
-               <h1 className="text-[51px] leading-[60px]">{heading.line2}</h1>
-          </div>
+  // Animation variants for text content
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, // Delay between each text element
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-          {/* Description */}
-          <div className="space-y-1 text-[17px] leading-7 text-gray-600">
-               {description.map((line, index) => (
-               <p key={index}>{line}</p>
-               ))}
-          </div>
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  };
 
-          {/* Buttons */}
-          <div className="flex flex-col gap-4 sm:flex-row">
-               {buttons.primary && (
-               <Button
-                    onClick={buttons.primary.onClick}
-                    className="h-[63.622px] gap-3 rounded-xl bg-blue-600 px-8 text-[15.3px] hover:bg-blue-700"
-               >
-               <Search className="size-5" />
-                    {buttons.primary.text}
-               </Button>
-               )}
-               {buttons.secondary && (
-          <Button
-               onClick={buttons.secondary.onClick}
-               variant="outline"
-               className="h-[63.622px] gap-3 rounded-xl border-blue-600 px-8 text-[15.3px] text-blue-600 hover:bg-blue-50"
-               >
-               <Calendar className="size-5" />
-                    {buttons.secondary.text}
-          </Button>
-          )}
-          </div>
+  return (
+    <div className="relative relative h-[calc(100vh-64px)] w-full overflow-hidden border-b bg-background">
+      {/* --- Background Image Slider --- */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 h-full w-full"
+          >
+            {/* The Image */}
+            <img
+              src={placeholderImages[currentImageIndex]}
+              alt={`Doctoral Healthcare Scene ${currentImageIndex + 1}`}
+              className="h-full w-full object-cover object-center"
+            />
+            {/* Elegant Dark Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent dark:from-black/90 dark:via-black/70" />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 pt-4">
-               {stats.map((stat, index) => (
-               <div key={index} className="space-y-2">
-                    <div className="flex items-center gap-2">
-                    <p className="text-[25.5px] leading-9">{stat.value}</p>
-                    {stat.icon}
-               </div>
-                    <p className="text-[13.6px] leading-6 text-gray-600">
-                    {stat.label}
-                    </p>
-               </div>
-               ))}
-          </div>
-          </div>
+      {/* --- Content Area --- */}
+      <div className="container relative z-10 mx-auto flex h-full items-center px-4 md:px-8">
+        <motion.div
+          className="max-w-3xl text-left"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Badge */}
+          <motion.div variants={itemVariants} className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm">
+            <Stethoscope className="h-4 w-4" />
+            <span>Advanced Healthcare Management</span>
+          </motion.div>
 
-          {/* Right Column - Form Card */}
-          <div className="flex items-center justify-center lg:justify-end">
-          <div className="w-full max-w-[559.929px] rounded-2xl bg-white p-8 shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
-          {/* Card Header */}
-          <div className="mb-6 flex items-center justify-between">
-               <h2 className="text-[20.4px] leading-6">{formCard.title}</h2>
-               <LargeSparkleIcon />
-          </div>
+          {/* Headline */}
+          <motion.h1 
+            variants={itemVariants}
+            className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Your Health, <br />
+            <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+              Simplified.
+            </span>
+          </motion.h1>
 
-          {/* Form */}
-          <form className="space-y-6">
-                  {/* Symptoms Input */}
-               <div className="space-y-2">
-               <Label
-                    htmlFor="symptoms"
-                    className="text-[11.9px] text-gray-700"
-               >
-                    {formCard.symptomLabel}
-               </Label>
-               <Input
-                    id="symptoms"
-                    name="symptoms"
-                    placeholder={formCard.symptomPlaceholder}
-                    className="h-[49.787px] rounded-xl border-gray-300"
-                    />
-          </div>
+          {/* Subheading */}
+          <motion.p 
+            variants={itemVariants}
+            className="mb-10 max-w-2xl text-xl text-gray-200 md:text-2xl dark:text-gray-300"
+          >
+            Access top-tier specialists, manage appointments, and view health records seamlessly with Doctoral. Personalized care, right at your fingertips.
+          </motion.p>
 
-          {/* Submit Button */}
-               <Button
-                    type="submit"
-                    className="h-[59.986px] w-full rounded-xl bg-blue-600 text-[15.3px] hover:bg-blue-700"
-               >
-                    {formCard.submitText}
-               </Button>
-          </form>
+          {/* Call to Actions (CTAs) */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+            <Link href="/doctors">
+              <Button size="lg" className="h-14 w-full sm:w-auto gap-2 rounded-full px-8 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 bg-gradient-to-r from-primary to-blue-600">
+                <Search className="h-5 w-5" />
+                Find Your Doctor
+              </Button>
+            </Link>
+            
+            <Link href="/appointments">
+              <Button size="lg" variant="outline" className="h-14 w-full sm:w-auto gap-2 rounded-full px-8 text-base border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all">
+                <CalendarDays className="h-5 w-5" />
+                Book Consultation
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
 
-          {/* Footer */}
-          <div className="mt-6 border-t border-gray-200 pt-4">
-               <p className="text-center text-[11.9px] leading-5 text-gray-600">
-                    {formCard.footerText}
-               </p>
-          </div>
-          </div>
-          </div>
-     </div>
-     </div>
-     </div>
-</div>
-);
-}
+      {/* Slider Indicators (Dots) */}
+      <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
+        {placeholderImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`h-3 rounded-full transition-all duration-300 ${
+              currentImageIndex === index 
+                ? "w-8 bg-primary" 
+                : "w-3 bg-white/50 hover:bg-white/80"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Hero;

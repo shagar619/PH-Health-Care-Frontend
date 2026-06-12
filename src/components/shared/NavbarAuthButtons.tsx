@@ -46,7 +46,7 @@ export default function NavbarAuthButtons({
      return (
      <Link href="/login">
      <Button 
-          className="gap-2 rounded-full px-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+          className="gap-2 rounded-full px-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
      >
      <LogIn className="h-4 w-4" />
           Login

@@ -27,29 +27,28 @@ export default function NavbarAuthButtons({
 
      if (hasToken && userInfo) {
      return (
-     <div className="flex items-center gap-2">
+     <div className="flex items-center space-x-4 animate-in fade-in zoom-in duration-300">
      <Link href={dashboardRoute}>
-          <Button
-               variant="outline"
-               size="sm"
-               className="gap-2 border-slate-200 bg-white text-slate-700 shadow-sm hover:border-sky-300 hover:bg-sky-50 hover:text-sky-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-sky-700 dark:hover:bg-sky-950/40 dark:hover:text-sky-400 transition-all duration-200 font-medium cursor-pointer"
-          >
-          <LayoutDashboard className="h-3.5 w-3.5" />
-               Dashboard
-          </Button>
+     <Button 
+          variant="outline" 
+          className="gap-2 border-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 shadow-sm rounded-full px-5"
+     >
+     <LayoutDashboard className="h-4 w-4" />
+          Dashboard
+     </Button>
      </Link>
      <UserDropdown userInfo={userInfo} />
      </div>
      );
-}
+     }
+
 
      return (
      <Link href="/login">
-     <Button
-          size="sm"
-          className="gap-2 bg-sky-600 hover:bg-sky-700 text-white shadow-md hover:shadow-sky-500/40 transition-all duration-200 font-medium cursor-pointer"
+     <Button 
+          className="gap-2 rounded-full px-6 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
      >
-     <LogIn className="h-3.5 w-3.5" />
+     <LogIn className="h-4 w-4" />
           Login
      </Button>
      </Link>

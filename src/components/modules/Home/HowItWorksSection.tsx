@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
                     transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
                     className={`ml-20 md:ml-0 w-full md:w-1/2 ${isEven ? "md:pr-16 md:text-right" : "md:pl-16 md:order-last text-left"}`}
                   >
-                    <div className={`p-8 rounded-3xl bg-background/40 backdrop-blur-xl border border-white/10 shadow-2xl hover:bg-background/60 transition-colors ${isEven ? "md:items-end flex flex-col" : "items-start flex flex-col"}`}>
+                    <div className={`p-8 rounded-3xl bg-emerald-100 cursor-pointer backdrop-blur-xl border border-white/10 shadow-2xl hover:bg-background/60 transition-colors ${isEven ? "md:items-end flex flex-col" : "items-start flex flex-col"}`}>
                       <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6">
                         <Icon className="w-8 h-8" />
                       </div>

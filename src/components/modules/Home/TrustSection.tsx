@@ -1,97 +1,197 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Users, Award, Building2, ShieldCheck, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus, Search, Shield, Calendar, ToggleLeft, ArrowUp } from "lucide-react";
 
-const stats = [
-  { icon: Users, label: "Active Patients", value: "50k+" },
-  { icon: Award, label: "Verified Specialists", value: "1,200+" },
-  { icon: Building2, label: "Partner Clinics", value: "300+" },
-  { icon: ShieldCheck, label: "Medical Specialties", value: "45+" },
+const accordions = [
+  {
+    id: "01",
+    title: "Our Vision",
+    content: "We envision a community where everyone has access to high-quality healthcare and the resources they need to lead healthy, fulfilling lives.",
+  },
+  {
+    id: "02",
+    title: "Our Mission",
+    content: "Our mission is to provide exceptional, patient-centered care while advancing medical innovation and expanding access to health services for all.",
+  },
+];
+
+const steps = [
+  {
+    icon: Search,
+    title: "Search For Doctors",
+    description: "Search for a doctor based on specialization, location, or availability.",
+    bgColor: "bg-[#1877F2]", // Blue
+  },
+  {
+    icon: Shield,
+    title: "Check Doctor Profile",
+    description: "Explore detailed doctor profiles on our platform to make informed decisions.",
+    bgColor: "bg-[#F97316]", // Orange
+  },
+  {
+    icon: Calendar,
+    title: "Schedule Appointment",
+    description: "After choosing your preferred doctor, select a convenient time slot.",
+    bgColor: "bg-[#06B6D4]", // Teal/Cyan
+  },
+  {
+    icon: ToggleLeft,
+    title: "Get Your Solution",
+    description: "Discuss your health concerns with the doctor and receive the right care.",
+    bgColor: "bg-[#6366F1]", // Purple/Indigo
+  },
 ];
 
 export default function TrustSection() {
+  const [openAccordion, setOpenAccordion] = useState<string>("01");
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordion(openAccordion === id ? "" : id);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <section className="relative py-32 overflow-hidden bg-slate-950 text-white">
-      {/* Abstract Background Elements */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-blue-600/30 rounded-full blur-[120px]" />
-      <div className="absolute -bottom-40 -left-40 w-[40rem] h-[40rem] bg-primary/30 rounded-full blur-[120px]" />
-
-      <div className="container relative z-10 mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="relative py-24 bg-[#020817] text-white overflow-hidden font-sans">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        
+        {/* Top Split Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-32">
           
-          {/* Left Content Area */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <div className="flex items-center gap-2 mb-6">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-6 h-6 fill-amber-400 text-amber-400" />
-              ))}
-              <span className="ml-2 font-medium text-slate-300">4.9/5 Average Rating</span>
+          {/* Left Side: Image Grid */}
+          <div className="flex flex-col gap-5">
+            {/* Top Large Image */}
+            <div className="w-full h-64 md:h-[280px] rounded-[2rem] overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop" 
+                alt="Doctor with patients" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[1.1] tracking-tight">
-              Trusted by <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                thousands worldwide.
-              </span>
+            {/* Bottom Two Images */}
+            <div className="grid grid-cols-2 gap-5">
+              <div className="h-48 md:h-[220px] rounded-[2rem] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop" 
+                  alt="Doctor with child" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="h-48 md:h-[220px] rounded-[2rem] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop" 
+                  alt="Medical vials" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Content & Accordion */}
+          <div className="flex flex-col">
+            {/* Badge */}
+            <div className="mb-6 self-start">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#1e3a8a]/40 border border-[#1e3a8a] px-4 py-1.5 text-sm font-medium text-blue-400">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                Why Book With Us
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+              </div>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-4xl font-bold mb-6 leading-[1.2]">
+              We are committed to <br className="hidden md:block" />
+              understanding your <span className="text-[#00B4D8]">unique <br /> needs and delivering care</span>
             </h2>
-            <p className="text-xl text-slate-400 mb-10 leading-relaxed font-light">
-              We hold ourselves to the highest medical standards. Every practitioner on Doctoral goes through a rigorous vetting process, ensuring your health is always in the best hands.
+
+            {/* Paragraph (Kept exact wording from reference) */}
+            <p className="text-gray-400 text-base md:text-lg mb-10 leading-relaxed">
+              As a trusted healthcare provider in our community, we are passionate about promoting health and wellness beyond the clinic. We actively engage in community outreach programs, health fairs, and educational workshop.
             </p>
-            <div className="flex gap-4">
-              <Button size="lg" className="rounded-full px-8 bg-white text-slate-950 hover:bg-slate-200 shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all h-14 text-lg">
-                Join the Network
-              </Button>
-            </div>
-          </motion.div>
 
-          {/* Right Floating Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 md:gap-6 relative">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              // Create staggered floating animations
-              const yOffset = index % 2 === 0 ? [0, -15, 0] : [0, 15, 0];
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  animate={{ y: yOffset }}
-                  // Infinite floating animation
-                  // @ts-ignore - Framer motion type quirk for arrays
-                  transition={{ 
-                    y: {
-                      duration: 4 + index,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }
-                  }}
-                  className={`relative overflow-hidden p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl ${index % 2 !== 0 ? 'md:mt-12' : ''}`}
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
-                  
-                  <Icon className="w-10 h-10 text-emerald-400 mb-6" />
-                  <div className="text-4xl md:text-5xl font-black mb-2 text-white">{stat.value}</div>
-                  <div className="text-sm md:text-base font-medium text-slate-400">
-                    {stat.label}
+            {/* Accordion */}
+            <div className="space-y-4">
+              {accordions.map((item) => {
+                const isOpen = openAccordion === item.id;
+                return (
+                  <div 
+                    key={item.id} 
+                    className={`rounded-2xl border transition-colors duration-300 overflow-hidden ${
+                      isOpen ? "border-[#1e3a8a] bg-[#0A1128]" : "border-gray-800 bg-transparent"
+                    }`}
+                  >
+                    <button
+                      onClick={() => toggleAccordion(item.id)}
+                      className="w-full flex items-center justify-between p-6 focus:outline-none"
+                    >
+                      <span className={`text-xl font-semibold transition-colors ${isOpen ? "text-[#3B82F6]" : "text-white"}`}>
+                        {item.id} . {item.title}
+                      </span>
+                      <div className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors ${isOpen ? "bg-[#3B82F6] text-white" : "bg-[#1e3a8a]/40 text-[#3B82F6]"}`}>
+                        {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                      </div>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                          <div className="px-6 pb-6 text-gray-400 text-base leading-relaxed">
+                            {item.content}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section: 4 Steps Timeline */}
+        <div className="relative mt-20">
+          
+          {/* Background Dotted Line (Hidden on mobile, visible on md+) */}
+          <div className="hidden md:block absolute top-[28px] left-[10%] right-[10%] border-t-2 border-dashed border-gray-700/50 -z-10" />
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={index} className="flex flex-col items-center text-center relative z-10">
+                  <div className={`w-16 h-16 flex items-center justify-center rounded-2xl mb-6 shadow-lg ${step.bgColor}`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed px-2">
+                    {step.description}
+                  </p>
+                </div>
               );
             })}
           </div>
-
         </div>
       </div>
+
+      {/* Floating Scroll to top button (matching bottom right of image) */}
+      <button 
+        onClick={scrollToTop}
+        className="absolute bottom-8 right-8 w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors"
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
     </section>
   );
 }

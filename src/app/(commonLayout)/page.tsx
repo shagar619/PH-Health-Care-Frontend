@@ -1,8 +1,12 @@
+import FeaturesSection from "@/components/modules/Home/FeaturesSection";
 import Hero from "@/components/modules/Home/Hero";
+import HowItWorksSection from "@/components/modules/Home/HowItWorksSection";
 import Specialities from "@/components/modules/Home/Specialties";
 import Steps from "@/components/modules/Home/Steps";
 import Testimonials from "@/components/modules/Home/Testimonials";
+import TopDoctorsSection from "@/components/modules/Home/TopDoctorsSection";
 import TopRatedDoctors from "@/components/modules/Home/TopRatedDoctors";
+import TrustSection from "@/components/modules/Home/TrustSection";
 import Head from "next/head";
 
 
@@ -21,6 +25,10 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
+        <FeaturesSection></FeaturesSection>
+        <HowItWorksSection></HowItWorksSection>
+        <TrustSection></TrustSection>
+        <TopDoctorsSection></TopDoctorsSection>
         <Specialities />
         <TopRatedDoctors />
         <Steps />

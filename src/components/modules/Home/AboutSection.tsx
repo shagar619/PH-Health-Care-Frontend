@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Phone } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 28 },
@@ -190,7 +190,7 @@ export default function AboutSection() {
           />
 
           {/* Founder row */}
-          <motion.div
+          {/* <motion.div
             variants={fadeRight(0.56)}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -219,7 +219,34 @@ export default function AboutSection() {
               alt="Mr. Mark Williams signature"
               className="h-10 w-auto opacity-55 grayscale dark:invert dark:opacity-35"
             />
+          </motion.div> */}
+
+          
+          <motion.div
+            variants={fadeLeft(0.56)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="flex items-center gap-4"
+          >
+            {/* icon circle with ripple */}
+            <div className="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-teal-600 shadow-lg shadow-teal-600/30 transition-all duration-300 hover:scale-105 hover:shadow-teal-500/50">
+              <span className="absolute inset-0 animate-ping rounded-full bg-teal-500 opacity-20" />
+              <Phone className="h-5 w-5 text-white" />
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <span className="text-xs text-slate-500 dark:text-slate-400">
+                Feel free to contact us here
+              </span>
+              <a
+                href="tel:+12025550104"
+                className="text-[15px] font-bold text-teal-600 transition-colors hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
+              >
+                Call: +1-202-555-0104
+              </a>
+            </div>
           </motion.div>
+
+          
         </div>
 
       </div>

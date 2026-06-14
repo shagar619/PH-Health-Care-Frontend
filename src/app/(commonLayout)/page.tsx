@@ -1,10 +1,12 @@
 import AboutSection from "@/components/modules/Home/AboutSection";
+import ContactSection from "@/components/modules/Home/ContactSection";
 import FAQSection from "@/components/modules/Home/FAQSection";
 import FeaturesSection from "@/components/modules/Home/FeaturesSection";
 import Hero from "@/components/modules/Home/Hero";
 import HowItWorksSection from "@/components/modules/Home/HowItWorksSection";
 import TopDoctorsSection from "@/components/modules/Home/TopDoctorsSection";
 import TrustSection from "@/components/modules/Home/TrustSection";
+import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
 import Head from "next/head";
 
 
@@ -24,11 +26,13 @@ export default function Home() {
       <main>
         <Hero />
         <AboutSection></AboutSection>
+        <WhyChooseUs></WhyChooseUs>
         <FeaturesSection></FeaturesSection>
         <HowItWorksSection></HowItWorksSection>
         <TopDoctorsSection></TopDoctorsSection>
         <TrustSection></TrustSection>
         <FAQSection></FAQSection>
+        <ContactSection></ContactSection>
       </main>
     </>
   );

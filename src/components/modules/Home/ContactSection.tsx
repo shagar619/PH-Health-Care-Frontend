@@ -115,7 +115,7 @@ export default function ContactSection() {
           whileTap={{ scale: 0.98 }}
           className="inline-flex"
      >
-          <button type="submit" className="flex items-stretch group shadow-md">
+          <button type="submit" className="flex items-stretch group shadow-md cursor-pointer">
      <div className="bg-[#1A6461] text-white text-sm font-semibold tracking-wider uppercase px-8 py-4 transition-colors group-hover:bg-[#14514e]">
           Send Message
      </div>

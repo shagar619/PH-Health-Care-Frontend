@@ -1,161 +1,157 @@
 "use client";
 
-import { Headphones, MessageSquare, Send, Facebook, Twitter, Instagram, Linkedin, Pin, ArrowUp } from "lucide-react";
 import Link from "next/link";
+import { ChevronRight, Star, ArrowUp } from "lucide-react";
 
-const footerLinks = [
+const departments = [
+     "Oncologist",
+     "Neurologist",
+     "ENT specialist",
+     "Cardiologist",
+     "Audiologist",
+     "Psychiatrists",
+];
+
+const products = [
 {
-     title: "Documentation",
-     links: ["Medical", "Operation", "Laboratory", "ICU"],
+     name: "Asthma Inhaler",
+     price: "$45.00",
+     image: "https://kivicare-wordpress.iqonic.design/wp-content/uploads/2020/12/Rectangle-5.jpg",
+     rating: 5,
 },
 {
-     title: "Treatments",
-     links: ["Neurology", "Cardiologist", "Dentist", "Urology"],
+     name: "Dental equipment",
+     price: "$22.00",
+     image: "https://kivicare-wordpress.iqonic.design/wp-content/uploads/2020/12/Rectangle-11.jpg",
+     rating: 5,
 },
-{
-     title: "Specialities",
-     links: ["Neurology", "Cardiologist", "Dentist", "Urology"],
-},
-{
-     title: "Utilites",
-     links: ["Medical", "Operation", "Laboratory", "ICU"],
-},
+];
+
+const openingHours = [
+     { day: "Weekdays", hours: "9:00 - 20:00" },
+     { day: "Saturday", hours: "9:00 - 20:00" },
+     { day: "Sunday", hours: "Closed" },
 ];
 
 
 export default function PublicFooter() {
-
      const scrollToTop = () => {
      window.scrollTo({ top: 0, behavior: "smooth" });
      };
 
+
      return (
-     <footer className="relative bg-[#F4F9FF] pt-24 pb-6 mt-24">
-     {/* Background Image Layer */}
-     <div 
-          className="absolute inset-0 z-0 opacity-80 pointer-events-none"
-          style={{
-          backgroundImage: "url('https://i.ibb.co.com/1tZHLVcg/footer-bg-05.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-     }}
-     />
-
-     {/* Floating Top Banner */}
-     <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-20">
-     <div className="absolute left-4 right-4 md:left-8 md:right-8 -top-40 bg-[#00B4D8] rounded-[2rem] px-8 py-10 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-lg shadow-blue-500/20">
-     <h2 className="text-3xl md:text-4xl font-bold text-white text-center lg:text-left">
-          Working for Your Better Health.
-     </h2>
-
-     <div className="flex flex-col sm:flex-row items-center gap-8 lg:gap-12">
-     {/* Customer Support */}
-     <div className="flex items-center gap-4">
-     <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#00B4D8] shrink-0">
-          <Headphones className="w-6 h-6" />
-     </div>
-     <div className="text-white">
-          <p className="text-sm text-blue-100 mb-0.5">Customer Support</p>
-          <p className="font-bold text-lg leading-tight">+1 56589 54598</p>
-     </div>
-     </div>
-
-     {/* Email Support */}
-     <div className="flex items-center gap-4">
-     <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#00B4D8] shrink-0">
-          <MessageSquare className="w-6 h-6" />
-     </div>
-     <div className="text-white">
-          <p className="text-sm text-blue-100 mb-0.5">Drop Us an Email</p>
-          <p className="font-bold text-lg leading-tight">info1256@example.com</p>
-     </div>
-     </div>
-     </div>
-     </div>
-     </div>
-
+     <footer className="bg-[#272B31] text-white font-sans">
      {/* Main Footer Content */}
-     <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 pt-16">
-     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mb-16">
+     <div className="container mx-auto px-4 md:px-8 max-w-7xl pt-20 pb-16">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
-     {/* Link Columns */}
-     {footerLinks.map((section, index) => (
-     <div key={index} className="col-span-1">
-     <h3 className="text-slate-800 font-bold text-lg mb-6">{section.title}</h3>
-     <ul className="space-y-4">
-          {section.links.map((link, idx) => (
-          <li key={idx}>
-          <Link 
-               href="#" 
-               className="text-slate-500 hover:text-[#00B4D8] transition-colors text-sm md:text-base font-medium"
-          >
-               {link}
-          </Link>
-          </li>
+     {/* Column 1: Brand & Contact */}
+     <div className="flex flex-col">
+     {/* Logo area */}
+     <div className="flex items-center gap-3 mb-6">
+     <div className="w-10 h-10 relative flex items-center justify-center">
+     {/* Recreating the cross logo with CSS shapes */}
+     <div className="absolute w-full h-4 bg-[#FBBF24] rounded-sm"></div>
+     <div className="absolute h-full w-4 bg-[#2A7F7B] rounded-sm top-2 left-2"></div>
+     </div>
+          <span className="text-2xl font-semibold tracking-wide">Doctoral</span>
+     </div>
+
+          <p className="text-slate-300 text-sm leading-relaxed mb-6">
+               It is a long established fact that a reader will be distracted by the readable content.
+          </p>
+
+          <p className="text-xl font-bold mb-2">+ (480) 555-0103</p>
+          <p className="text-sm text-slate-400">
+               Email us : <a href="mailto:doctoral@example.com" className="text-[#FBBF24] hover:underline">doctoral@example.com</a>
+          </p>
+          </div>
+
+     {/* Column 2: Departments */}
+     <div>
+          <h3 className="text-xl font-bold mb-6">Departments</h3>
+          <ul className="space-y-4">
+          {departments.map((dept, idx) => (
+               <li key={idx}>
+               <Link 
+                    href="#" 
+                    className="flex items-center gap-2 text-slate-300 hover:text-[#FBBF24] transition-colors text-sm font-medium group"
+               >
+                    <ChevronRight className="w-4 h-4 text-[#FBBF24] group-hover:translate-x-1 transition-transform" />
+                    {dept}
+               </Link>
+               </li>
           ))}
           </ul>
           </div>
+
+     {/* Column 3: Popular Products */}
+     <div>
+          <h3 className="text-xl font-bold mb-6">Popular Products</h3>
+          <div className="space-y-6">
+          {products.map((product, idx) => (
+          <div key={idx} className="flex gap-4 items-center">
+          <div className="w-20 h-20 shrink-0 bg-white p-1">
+               <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="w-full h-full object-cover"
+               />
+          </div>
+          <div>
+               <h4 className="font-semibold text-sm mb-1 hover:text-[#2A7F7B] cursor-pointer transition-colors">
+                    {product.name}
+               </h4>
+          <div className="flex gap-1 mb-1">
+               {[...Array(product.rating)].map((_, i) => (
+               <Star key={i} className="w-3 h-3 fill-[#FBBF24] text-[#FBBF24]" />
+               ))}
+          </div>
+               <p className="text-slate-400 text-sm">{product.price}</p>
+          </div>
+          </div>
           ))}
+          </div>
+          </div>
 
-     {/* Newsletter Column */}
-     <div className="col-span-2 lg:col-span-2">
-          <h3 className="text-slate-800 font-bold text-lg mb-6">Newsletter</h3>
-          <p className="text-slate-500 text-sm mb-4">
-               Subscribe & Stay Updated from the Doctoral
-          </p>
+          {/* Column 4: Opening Hours */}
+          <div>
+               <h3 className="text-xl font-bold mb-6">Opening Hours</h3>
+               <ul className="space-y-4 w-full md:max-w-[250px]">
+               {openingHours.map((schedule, idx) => (
+               <li 
+                    key={idx} 
+                    className={`flex justify-between items-center text-sm ${
+                    idx !== openingHours.length - 1 ? "border-b border-slate-700/50 pb-4" : ""
+               }`}
+               >
+               <span className="text-slate-400">{schedule.day}</span>
+               <span className="text-white font-medium">{schedule.hours}</span>
+               </li>
+          ))}
+          </ul>
+          </div>
 
-     {/* Input Form */}
-     <div className="relative mb-8">
-     <input 
-          type="email" 
-          placeholder="Enter Email" 
-          className="w-full bg-white border-0 py-4 pl-5 pr-32 rounded-xl shadow-[0_4px_20px_-10px_rgba(0,0,0,0.08)] focus:outline-none focus:ring-2 focus:ring-[#00B4D8]/50 text-slate-700"
-     />
-     <button className="absolute right-2 top-2 bottom-2 bg-[#00B4D8] hover:bg-[#009bc2] text-white px-5 rounded-lg font-medium transition-colors flex items-center gap-2">
-          <Send className="w-4 h-4" />
-               Send
-          </button>
      </div>
-
-     {/* Social Links */}
-     <h4 className="text-slate-800 font-bold mb-4">Connect With Us</h4>
-     <div className="flex gap-3">
-     {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
-          <a 
-               key={idx} 
-               href="#" 
-               className="w-9 h-9 rounded-full bg-white flex items-center justify-center text-slate-600 hover:bg-[#00B4D8] hover:text-white transition-all shadow-sm"
-          >
-          <Icon className="w-4 h-4" />
-          </a>
-          ))}
-          </div>
-          </div>
-
      </div>
 
      {/* Bottom Copyright Bar */}
-     <div className="border-t border-slate-200/60 pt-6 pb-2 flex flex-col md:flex-row items-center justify-between gap-4 relative">
-          <p className="text-slate-500 text-sm font-medium">
-               © 2026 Doctoral. All rights reserved.
+     <div className="bg-[#2A7F7B] relative">
+     <div className="container mx-auto px-4 py-5 flex items-center justify-center">
+          <p className="text-white/90 text-sm font-medium">
+          © 2026 Doctoral, All Rights Reserved
           </p>
-          
-     <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
-          <Link href="/terms" className="hover:text-[#00B4D8] transition-colors">Terms and Conditions</Link>
-          <span className="text-slate-300">•</span>
-          <Link href="/privacy" className="hover:text-[#00B4D8] transition-colors">Privacy Policy</Link>
      </div>
 
-     {/* Floating Scroll to Top */}
+     {/* Floating Scroll to Top Button */}
      <button 
           onClick={scrollToTop}
-          className="absolute right-0 -top-5 md:top-1/2 md:-translate-y-1/2 w-10 h-10 rounded-full border border-[#00B4D8] text-[#00B4D8] hover:bg-[#00B4D8] hover:text-white flex items-center justify-center transition-all bg-white"
+          className="absolute right-0 top-0 bottom-0 bg-[#226663] hover:bg-[#1a4f4d] w-14 flex items-center justify-center transition-colors text-white"
           aria-label="Scroll to top"
      >
           <ArrowUp className="w-5 h-5" />
-          </button>
-     </div>
+     </button>
      </div>
      </footer>
 );

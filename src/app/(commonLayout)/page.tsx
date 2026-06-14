@@ -1,3 +1,4 @@
+import AboutSection from "@/components/modules/Home/AboutSection";
 import FAQSection from "@/components/modules/Home/FAQSection";
 import FeaturesSection from "@/components/modules/Home/FeaturesSection";
 import Hero from "@/components/modules/Home/Hero";
@@ -22,6 +23,7 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
+        <AboutSection></AboutSection>
         <FeaturesSection></FeaturesSection>
         <HowItWorksSection></HowItWorksSection>
         <TopDoctorsSection></TopDoctorsSection>

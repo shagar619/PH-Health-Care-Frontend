@@ -3,6 +3,7 @@ import ContactSection from "@/components/modules/Home/ContactSection";
 import FAQSection from "@/components/modules/Home/FAQSection";
 import Hero from "@/components/modules/Home/Hero";
 import PricingSection from "@/components/modules/Home/PricingSection";
+import ServicesSection from "@/components/modules/Home/ServicesSection";
 import TopDoctorsSection from "@/components/modules/Home/TopDoctorsSection";
 import TrustSection from "@/components/modules/Home/TrustSection";
 import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
@@ -26,8 +27,9 @@ export default function Home() {
         <Hero />
         <AboutSection></AboutSection>
         <WhyChooseUs></WhyChooseUs>
+        <ServicesSection></ServicesSection>
         <TopDoctorsSection></TopDoctorsSection>
-        <TrustSection></TrustSection>
+        {/* <TrustSection></TrustSection> */}
         <PricingSection></PricingSection>
         <FAQSection></FAQSection>
         <ContactSection></ContactSection>

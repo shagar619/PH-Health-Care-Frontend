@@ -117,7 +117,7 @@ export default function TopDoctorsSection() {
      {doctors.map((doctor) => (
      <div
           key={doctor.id}
-          className="relative group flex-shrink-0"
+          className="relative group flex-shrink-0 cursor-pointer"
           style={{ width: `calc(${100 / cardsToShow}% - ${((cardsToShow - 1) * 24) / cardsToShow}px)` }}
      >
      <div className="bg-white rounded-lg border border-gray-100 overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] h-full flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
@@ -127,7 +127,7 @@ export default function TopDoctorsSection() {
           <img
                src={doctor.image}
                alt={doctor.name}
-               className="w-full h-full object-cover object-center"
+               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
           />
 
           {/* Social Media Overlay (matches the first card in reference) */}

@@ -4,6 +4,7 @@ import FAQSection from "@/components/modules/Home/FAQSection";
 import Hero from "@/components/modules/Home/Hero";
 import PricingSection from "@/components/modules/Home/PricingSection";
 import ServicesSection from "@/components/modules/Home/ServicesSection";
+import TestimonialSection from "@/components/modules/Home/TestimonialSection";
 import TopDoctorsSection from "@/components/modules/Home/TopDoctorsSection";
 import TrustSection from "@/components/modules/Home/TrustSection";
 import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
@@ -32,6 +33,7 @@ export default function Home() {
         {/* <TrustSection></TrustSection> */}
         <PricingSection></PricingSection>
         <FAQSection></FAQSection>
+        <TestimonialSection></TestimonialSection>
         <ContactSection></ContactSection>
       </main>
     </>

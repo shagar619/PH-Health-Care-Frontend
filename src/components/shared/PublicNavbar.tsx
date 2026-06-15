@@ -5,17 +5,10 @@ import Link from "next/link";
 import AISearchDialog from "./AISSearchDialog";
 import NavbarAuthButtons from "./NavbarAuthButtons";
 import MobileMenu from "./MobileMenu";
-
+import DesktopNav from "./DesktopNav";
+import logo from "../../assets/images/logo.png";
 
 const PublicNavbar = async () => {
-
-     const navItems = [
-     { href: "/consultation", label: "Consultation" },
-     { href: "/health-plans", label: "Health Plans" },
-     { href: "/medicine", label: "Medicine" },
-     { href: "/diagnostics", label: "Diagnostics" },
-     { href: "/ngos", label: "NGOs" },
-     ];
 
      const accessToken = await getCookie("accessToken");
      const userInfo = accessToken ? await getUserInfo() : null;
@@ -24,29 +17,25 @@ const PublicNavbar = async () => {
      ? getDefaultDashboardRoute(userInfo.role)
      : "/";
 
-
      return (
-     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur  dark:bg-background/95">
-     <div className="container mx-auto flex h-16 items-center justify-between px-4">
-     <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold text-primary">PH Doc</span>
+     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/60 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm transition-all duration-300">
+     <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
+
+     {/* Logo Section */}
+     <Link 
+          href="/" 
+          className="flex items-center space-x-2 transition-transform hover:scale-105 duration-300"
+     >
+          <img src={logo.src} alt="PH Doc Logo" className="h-8 w-auto drop-shadow-sm" />
      </Link>
 
-     <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map((link) => (
-          <Link
-               key={link.label}
-               href={link.href}
-               prefetch={true}
-               className="text-foreground hover:text-primary transition-colors"
-          >
-          {link.label}
-          </Link>
-     ))}
-     </nav>
+     {/* Desktop Navigation (Client Component) - PROPS REMOVED */}
+     <DesktopNav />
 
-     <div className="hidden md:flex items-center space-x-2">
+     {/* Right Actions */}
+     <div className="hidden md:flex items-center space-x-4">
      <AISearchDialog />
+     <div className="h-6 w-px bg-border/50" />
      <NavbarAuthButtons
           initialHasToken={!!accessToken}
           initialUserInfo={userInfo}
@@ -54,9 +43,8 @@ const PublicNavbar = async () => {
      />
      </div>
 
-     {/* Mobile Menu */}
+     {/* Mobile Menu (Client Component) - NAV PROPS REMOVED */}
      <MobileMenu
-          navItems={navItems}
           hasAccessToken={!!accessToken}
           userInfo={userInfo}
           dashboardRoute={dashboardRoute}

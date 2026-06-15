@@ -145,6 +145,8 @@
 
 
 
+
+
 /* Updated version */
 
 @import "tailwindcss";
@@ -266,6 +268,23 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Added selection styling for a premium feel when highlighting text */
+    @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  /* Custom Glassmorphism Utilities */
+  .glass-panel {
+    @apply bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+  
+  .glass-card {
+    @apply bg-white/20 dark:bg-black/20 backdrop-blur-lg border border-white/20 dark:border-white/5 shadow-lg;
+  }
+
+  .text-glow {
+    /* Uses your dynamic OKLCH primary color for the glow */
+    text-shadow: 0 0 20px var(--color-primary);
   }
 }

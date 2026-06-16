@@ -7,7 +7,6 @@ import PricingSection from "@/components/modules/Home/PricingSection";
 import ServicesSection from "@/components/modules/Home/ServicesSection";
 import TestimonialSection from "@/components/modules/Home/TestimonialSection";
 import TopDoctorsSection from "@/components/modules/Home/TopDoctorsSection";
-import TrustSection from "@/components/modules/Home/TrustSection";
 import WhyChooseUs from "@/components/modules/Home/WhyChooseUs";
 import Head from "next/head";
 
@@ -31,7 +30,6 @@ export default function Home() {
         <WhyChooseUs></WhyChooseUs>
         <ServicesSection></ServicesSection>
         <TopDoctorsSection></TopDoctorsSection>
-        {/* <TrustSection></TrustSection> */}
         <PricingSection></PricingSection>
         <DiscoverMoreSection></DiscoverMoreSection>
         <FAQSection></FAQSection>

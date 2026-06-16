@@ -1,5 +1,6 @@
 import AboutSection from "@/components/modules/Home/AboutSection";
 import ContactSection from "@/components/modules/Home/ContactSection";
+import DiscoverMoreSection from "@/components/modules/Home/DiscoverMoreSection";
 import FAQSection from "@/components/modules/Home/FAQSection";
 import Hero from "@/components/modules/Home/Hero";
 import PricingSection from "@/components/modules/Home/PricingSection";
@@ -32,6 +33,7 @@ export default function Home() {
         <TopDoctorsSection></TopDoctorsSection>
         {/* <TrustSection></TrustSection> */}
         <PricingSection></PricingSection>
+        <DiscoverMoreSection></DiscoverMoreSection>
         <FAQSection></FAQSection>
         <TestimonialSection></TestimonialSection>
         <ContactSection></ContactSection>

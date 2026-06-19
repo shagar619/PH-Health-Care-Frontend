@@ -75,7 +75,7 @@ const blogPosts = [
     author: "Marcus Chen",
     authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     date: "02 Jul 2025",
-    image: "https://images.unsplash.com/photo-1589828131872-358c2ce1817c?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
   },
   {
     id: "8",
@@ -175,7 +175,7 @@ const blogPosts = [
     author: "Gregory Johnson",
     authorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     date: "02 Dec 2025",
-    image: "https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
   },
   {
     id: "18",
@@ -212,7 +212,7 @@ interface BlogSidebarProps {
   onSearchChange: (query: string) => void;
 }
 
-const BlogSidebar = ({ searchQuery, onSearchChange }: BlogSidebarProps) => (
+export const BlogSidebar = ({ searchQuery, onSearchChange }: BlogSidebarProps) => (
   <div className="space-y-6">
     {/* Search Box */}
     <div className="bg-white p-2 rounded-xl border border-slate-200 flex items-center">
@@ -275,6 +275,7 @@ const BlogSidebar = ({ searchQuery, onSearchChange }: BlogSidebarProps) => (
 
 // --- MAIN PAGE COMPONENT ---
 export default function BlogPage() {
+
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -405,7 +406,7 @@ export default function BlogPage() {
                       <button 
                         onClick={handlePrevPage}
                         disabled={currentPage === 1}
-                        className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                        className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1 cursor-pointer"
                       >
                         <ChevronLeft className="w-4 h-4" /> Prev
                       </button>
@@ -414,7 +415,7 @@ export default function BlogPage() {
                         <button 
                           key={page}
                           onClick={() => handlePageClick(page)}
-                          className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm transition-colors border ${
+                          className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm transition-colors border cursor-pointer ${
                             currentPage === page 
                               ? "bg-[#0A66C2] text-white border-[#0A66C2] font-bold" 
                               : "text-slate-600 border-slate-200 hover:bg-slate-50"
@@ -427,7 +428,7 @@ export default function BlogPage() {
                       <button 
                         onClick={handleNextPage}
                         disabled={currentPage === totalPages}
-                        className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                        className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1 cursor-pointer"
                       >
                         Next <ChevronRight className="w-4 h-4" />
                       </button>
@@ -441,7 +442,7 @@ export default function BlogPage() {
             <aside className="lg:w-1/3">
               <BlogSidebar 
                 searchQuery={searchQuery} 
-                onSearchChange={handleSearchChange} 
+                onSearchChange={handleSearchChange}
               />
             </aside>
 

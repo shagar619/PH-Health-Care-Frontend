@@ -11,5 +11,5 @@ export const navItems = [
      { href: "/health-plans", label: "Health Plans", icon: ShieldPlus },
      { href: "/medicine", label: "Medicine", icon: Pill },
      { href: "/blog", label: "Blog", icon: Activity },
-     { href: "/ngos", label: "NGOs", icon: HeartHandshake },
+     { href: "/about", label: "About", icon: HeartHandshake },
 ];

@@ -170,10 +170,10 @@ export default function HealthPlansPage() {
           viewport={{ once: true }}
           transition={{ delay: index * 0.15 }}
           whileHover={{ y: -10 }}
-          className={`relative rounded-[2rem] p-8 md:p-10 transition-shadow duration-300 cursor-pointer ${
+          className={`relative rounded-xl p-8 md:p-10 cursor-pointer ${
           plan.recommended 
-               ? "bg-[#0A3D54] text-white shadow-2xl shadow-[#0A3D54]/30 md:-translate-y-4" 
-               : "bg-white text-slate-900 border border-slate-200 shadow-lg hover:shadow-xl"
+               ? "bg-[#0A3D54] text-white md:-translate-y-4" 
+               : "bg-white text-slate-900 border border-slate-200 hover:border-[#0A66C2]/50 transition-colors"
           }`}
           >
           {plan.recommended && (

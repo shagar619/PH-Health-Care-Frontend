@@ -244,7 +244,7 @@ export default function MedicinePage() {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.4, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.22 } }}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/30 cursor-pointer"
+                  className="group flex flex-col rounded-xl border border-slate-200 overflow-hidden group hover:border-[#0A66C2]/50 transition-colors cursor-pointer"
                 >
                   {/* Image Container */}
                   <div className="relative h-60 rounded-2xl bg-slate-50 overflow-hidden mb-6">

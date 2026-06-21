@@ -66,7 +66,7 @@ export default function DiscoverMoreSection() {
      <motion.div 
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
-          className="md:col-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A3D54] to-[#1a6587] p-8 md:p-10 text-white shadow-lg group cursor-pointer"
+          className="md:col-span-2 relative overflow-hidden rounded-xl bg-gradient-to-br from-[#0A3D54] to-[#1a6587] p-8 md:p-10 text-white shadow-lg group cursor-pointer"
      >
      <div className="relative z-10 w-full md:w-2/3">
      <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center mb-6">
@@ -89,7 +89,7 @@ export default function DiscoverMoreSection() {
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
      >
      {/* Inner screen detail */}
-     <div className="absolute top-8 left-4 right-4 bottom-4 bg-[#0A3D54]/50 rounded-[28px] border border-white/10 p-4">
+     <div className="absolute top-8 left-4 right-4 bottom-4 bg-[#0A3D54]/50 rounded-xl border border-white/10 p-4">
      <div className="w-full h-8 bg-white/20 rounded-lg mb-4" />
      <div className="w-3/4 h-4 bg-white/10 rounded mb-2" />
      <div className="w-1/2 h-4 bg-white/10 rounded mb-6" />
@@ -105,7 +105,7 @@ export default function DiscoverMoreSection() {
      <motion.div 
           variants={itemVariants}
           whileHover={{ scale: 1.03 }}
-          className="relative overflow-hidden rounded-3xl bg-[#E85D54] p-8 md:p-10 text-white shadow-lg flex flex-col justify-between group cursor-pointer"
+          className="relative overflow-hidden rounded-xl bg-[#E85D54] p-8 md:p-10 text-white shadow-lg flex flex-col justify-between group cursor-pointer"
      >
      <div>
      {/* Pulsing Icon */}
@@ -128,8 +128,8 @@ export default function DiscoverMoreSection() {
      {/* Card 3: Patient Portal */}
      <motion.div 
           variants={itemVariants}
-          whileHover={{ scale: 1.03, y: -5 }}
-          className="rounded-3xl bg-[#F0F5F8] p-8 text-[#0A3D54] shadow-sm border border-[#DCE4E8] group cursor-pointer transition-shadow hover:shadow-md"
+          whileHover={{ scale: 1.00, y: -5 }}
+          className="bg-[#F0F5F8] p-8 text-[#0A3D54] rounded-xl border border-slate-200 overflow-hidden group hover:border-[#0A66C2]/50 transition-colors cursor-pointer"
      >
      <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-[#0A66C2]">
           <CalendarCheck className="w-6 h-6" />
@@ -147,7 +147,7 @@ export default function DiscoverMoreSection() {
      {/* Card 4: Newsletter (Spans 2 columns) */}
      <motion.div 
           variants={itemVariants}
-          className="md:col-span-2 rounded-3xl bg-white p-8 border border-[#DCE4E8] shadow-sm flex flex-col md:flex-row items-center justify-between gap-8"
+          className="md:col-span-2 rounded-xl bg-white p-8 border border-[#DCE4E8] flex flex-col md:flex-row items-center justify-between gap-8"
      >
      <div className="flex-1">
      <div className="flex items-center gap-3 mb-3">

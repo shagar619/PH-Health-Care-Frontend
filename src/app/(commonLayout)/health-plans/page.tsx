@@ -293,7 +293,7 @@ export default function HealthPlansPage() {
      <div className="container mx-auto px-4 md:px-8 max-w-[1000px]">
      <motion.div 
           whileHover={{ scale: 1.01 }}
-          className="relative rounded-[2.5rem] bg-gradient-to-r from-[#0A3D54] to-[#0A66C2] overflow-hidden p-10 md:p-16 text-center shadow-2xl"
+          className="relative rounded-[0.5rem] bg-gradient-to-r from-[#0A3D54] to-[#0A66C2] overflow-hidden p-10 md:p-16 text-center"
      >
      {/* Background pattern */}
      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent bg-[length:20px_20px]" />
@@ -311,7 +311,7 @@ export default function HealthPlansPage() {
                Enroll Now
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white border border-white/20 rounded-full font-bold text-lg hover:bg-white/20 transition-colors backdrop-blur-sm">
+          <button className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white border border-white/20 rounded-full font-bold text-lg hover:bg-white/20 transition-colors backdrop-blur-sm cursor-pointer">
                Speak to an Advisor
           </button>
      </div>

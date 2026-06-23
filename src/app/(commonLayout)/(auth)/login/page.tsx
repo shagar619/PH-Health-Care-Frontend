@@ -1,17 +1,20 @@
-// import LoginForm from "@/components/login-form";
-
 import AuthContainer from "@/components/auth-container";
 
 
-export default function LoginPage({
+// 1. Make the component async
+// 2. Wrap the searchParams type in a Promise
+export default async function LoginPage({
      searchParams,
 }: {
-     searchParams: { redirect?: string };
+     searchParams: Promise<{ redirect?: string }>;
 }) {
+     // 3. Await the searchParams before using them
+     const resolvedSearchParams = await searchParams;
+
      return (
      <div className="w-full flex justify-center py-10 md:py-20">
-     {/* Pass defaultView="login" */}
-     <AuthContainer redirect={searchParams.redirect} defaultView="login" />
+     {/* 4. Pass the resolved value */}
+     <AuthContainer redirect={resolvedSearchParams.redirect} defaultView="login" />
      </div>
 );
 }
@@ -34,6 +37,9 @@ export default function LoginPage({
 
 
 // previously in src/app/%28commonLayout%29/%28auth%29/login/page.tsx
+
+
+// import LoginForm from "@/components/login-form";
 
 
 // const LoginPage = async ({

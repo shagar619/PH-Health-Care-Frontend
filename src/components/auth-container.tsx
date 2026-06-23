@@ -49,6 +49,8 @@ export default function AuthContainer({ redirect, defaultView = "login" }: AuthC
      window.history.pushState(null, "", isRegister ? "/register" : "/login");
      };
 
+     console.log("regState", regState);
+
 
      return (
      <div className="flex items-center justify-center p-4 w-full">
@@ -121,6 +123,10 @@ export default function AuthContainer({ redirect, defaultView = "login" }: AuthC
      <div>
           <Input id="name" name="name" type="text" placeholder="Full Name" className="bg-slate-50 border-slate-200" />
           <InputFieldError field="name" state={regState} />
+     </div>
+     <div>
+          <Input id="address" name="address" type="text" placeholder="Address" className="bg-slate-50 border-slate-200" />
+          <InputFieldError field="address" state={regState} />
      </div>
      <div>
           <Input id="email" name="email" type="email" placeholder="Email" className="bg-slate-50 border-slate-200" />

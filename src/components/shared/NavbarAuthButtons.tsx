@@ -31,7 +31,7 @@ export default function NavbarAuthButtons({
      <Link href={dashboardRoute}>
      <Button 
           variant="outline" 
-          className="gap-2 border-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 shadow-sm rounded-full px-5"
+          className="gap-2 border-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 shadow-sm rounded-full px-5 cursor-pointer"
      >
      <LayoutDashboard className="h-4 w-4" />
           Dashboard

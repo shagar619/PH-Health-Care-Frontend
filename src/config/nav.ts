@@ -9,7 +9,7 @@ import {
 export const navItems = [
      { href: "/consultation", label: "Consultation", icon: Stethoscope },
      { href: "/health-plans", label: "Health Plans", icon: ShieldPlus },
-     { href: "/medicine", label: "Medicine", icon: Pill },
-     { href: "/diagnostics", label: "Diagnostics", icon: Activity },
-     { href: "/ngos", label: "NGOs", icon: HeartHandshake },
+     { href: "/pharmacy", label: "Pharmacy", icon: Pill },
+     { href: "/blog", label: "Blog", icon: Activity },
+     { href: "/about", label: "About", icon: HeartHandshake },
 ];

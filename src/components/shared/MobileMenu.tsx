@@ -44,7 +44,7 @@ const MobileMenu = ({
      <div className="md:hidden">
      <Sheet>
      <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="hover:bg-primary/10">
+          <Button variant="ghost" size="icon" className="hover:bg-primary/10 cursor-pointer">
           <Menu className="h-6 w-6" />
           </Button>
      </SheetTrigger>
@@ -52,8 +52,7 @@ const MobileMenu = ({
      <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0 flex flex-col bg-background/95 backdrop-blur-xl">
      <SheetHeader className="p-6 border-b text-left">
           <SheetTitle className="flex items-center gap-2">
-          <img src={logo.src} alt="Logo" className="h-8 w-auto" />
-          <span className="font-bold text-xl text-primary">Doctoral</span>
+          <img src={logo.src} alt="Logo" className="h-8 w-auto cursor-pointer" />
           </SheetTitle>
      </SheetHeader>
 
@@ -93,7 +92,7 @@ const MobileMenu = ({
           {hasAccessToken && userInfo ? (
           <div className="flex flex-col gap-3">
           <Link href={dashboardRoute || "/"}>
-          <Button className="w-full gap-2 shadow-md hover:shadow-lg transition-all" size="lg">
+          <Button className="w-full gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer" size="lg">
                <LayoutDashboard className="h-5 w-5" />
                     Dashboard
                </Button>
@@ -104,7 +103,7 @@ const MobileMenu = ({
           </div>
           ) : (
           <Link href="/login">
-          <Button className="w-full gap-2 shadow-md hover:shadow-lg transition-all" size="lg">
+          <Button className="w-full gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer" size="lg">
                <LogIn className="h-5 w-5" />
                Login
           </Button>

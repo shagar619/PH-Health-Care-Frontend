@@ -1,5 +1,4 @@
 import { AppointmentBarChart } from "@/components/shared/AppointmentBarChart";
-import { AppointmentPieChart } from "@/components/shared/AppointmentPieChart";
 import { DashboardSkeleton } from "@/components/shared/DashboardSkeleton";
 import { StatsCard } from "@/components/shared/StatCard";
 import { getDashboardMetaData } from "@/services/meta/dashboard.service";

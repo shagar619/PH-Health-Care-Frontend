@@ -29,7 +29,7 @@ export function StatsCard({
   return (
     <Card
       className={cn(
-        "transition-all duration-200 border-border/60 bg-card hover:border-border hover:shadow-sm",
+        "transition-all duration-200 border-border/60 bg-card hover:border-border hover:shadow-sm cursor-pointer",
         isHero && "border-primary/30 bg-gradient-to-br from-primary/5 via-transparent to-transparent dark:from-primary/10",
         className
       )}

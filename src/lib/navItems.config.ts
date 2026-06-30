@@ -1,7 +1,5 @@
 import { NavSection } from "@/types/dashboard.interface";
 import { getDefaultDashboardRoute, UserRole } from "./auth-utils";
-import { getMyAppointments } from "@/services/patient/appointment.service";
-import { IAppointment } from "@/types/appointments.interface";
 
 
 

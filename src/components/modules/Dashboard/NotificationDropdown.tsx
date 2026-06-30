@@ -68,6 +68,23 @@ const MOCK_NOTIFICATIONS: Notification[] = [
      timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2), // 2 days ago
      read: true,
 },
+{
+     id: "6",
+     type: "user",
+     title: "New Patient Registration",
+     message: "Emily Wilson has registered and is now in your patient list",
+     timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
+     read: true,
+},
+{
+     id: "7",
+     type: "system",
+     title: "System Maintenance",
+     message: "Scheduled maintenance on Sunday 2:00 AM - 4:00 AM",
+     timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2), // 2 days ago
+     read: true,
+},
+
 ];
 
 

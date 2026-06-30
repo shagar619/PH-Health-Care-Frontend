@@ -74,7 +74,7 @@ export function AppointmentBarChart({ data }: AppointmentBarChartProps) {
      </CardHeader>
      <CardContent className="pl-2">
      <div className="flex items-center justify-center h-[350px]">
-          <p className="text-sm text-muted-foreground">No data available</p>
+          <p className="text-sm text-muted-foreground">No data available here</p>
      </div>
      </CardContent>
      </Card>

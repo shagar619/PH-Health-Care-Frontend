@@ -10,16 +10,16 @@ const CommonDashboardLayout = async ({
 }) => {
 
      return (
-     <div className="flex h-screen overflow-hidden">
-
-          <DashboardSidebar />
-
+     // Changed bg color to the app's standard light slate background
+     <div className="flex h-screen overflow-hidden bg-[#F8FAFC]">
+     <DashboardSidebar />
      <div className="flex flex-1 flex-col overflow-hidden">
-
-          <DashboardNavbar />
-
-     <main className="flex-1 overflow-y-auto bg-muted/10 p-4 md:p-6">
-     <div className="">{children}</div>
+     <DashboardNavbar />
+     {/* Adjusted padding for a more breathable layout */}
+     <main className="flex-1 overflow-y-auto p-6 md:p-8">
+     <div className="max-w-7xl mx-auto w-full">
+          {children}
+     </div>
      </main>
      </div>
      </div>
